@@ -18,9 +18,7 @@
     enable = true;
     xwayland = {
       enable = true;
-      hidpi = if (host == "desktop") then true else false;
     };
-    enableNvidiaPatches = if (host == "desktop") then true else false;
     systemd.enable = true;
   };
 }
