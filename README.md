@@ -373,7 +373,7 @@ Mouse binding
 
    ```
    nix-shell -p git
-   git clone https://github.com/Frost-Phoenix/nixos-config
+   git clone https://github.com/iT3E/nixos-dotfiles
    cd nixos-config
    ```
 
