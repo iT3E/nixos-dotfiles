@@ -1,14 +1,10 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = (with pkgs; [
-    bitwise                           # cli tool for bit / hex manipulation
-    evince                            # gnome pdf viewer
-    eza                               # ls replacement
     entr                              # perform action when file change
     fd                                # find replacement
     file                              # Show file information 
     fzf                               # fuzzy finder
-    gtt                               # google translate TUI
     gifsicle                          # gif utility
     gimp
     gtrash                            # rm replacement, put deleted files in system trash
@@ -21,13 +17,9 @@
     nix-prefetch-github
     prismlauncher                     # minecraft launcher
     ripgrep                           # grep replacement
-    soundwireserver                   # pass audio to android phone
     tdf                               # cli pdf viewer
     todo                              # cli todo list
-    toipe                             # typing test in the terminal
-    valgrind                          # c memory analyzer
     yazi                              # terminal file manager
-    youtube-dl
     gnome.zenity
     winetricks
     wineWowPackages.wayland
