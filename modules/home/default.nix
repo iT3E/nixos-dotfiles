@@ -1,8 +1,6 @@
 {inputs, username, host, ...}: {
   imports =
-       [(import ./aseprite/aseprite.nix)]         # pixel art editor
-    ++ [(import ./audacious/audacious.nix)]       # music player
-    ++ [(import ./bat.nix)]                       # better cat command
+       [(import ./bat.nix)]                       # better cat command
     ++ [(import ./btop.nix)]                      # resouces monitor 
     ++ [(import ./cava.nix)]                      # audio visualizer
     ++ [(import ./discord.nix)]                   # discord with catppuccin theme
@@ -21,7 +19,6 @@
     ++ [(import ./scripts/scripts.nix)]           # personal scripts
     ++ [(import ./starship.nix)]                  # shell prompt
     ++ [(import ./swaylock.nix)]                  # lock screen
-    ++ [(import ./vscodium.nix)]                  # vscode forck
     ++ [(import ./waybar)]                        # status bar
     ++ [(import ./zsh.nix)];                      # shell
 }
