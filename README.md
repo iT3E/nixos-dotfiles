@@ -356,6 +356,44 @@ Mouse binding
 - `bindm = $mainMod, mouse:273, resizewindow`
 </details>
 
+## :open_file_folder:&nbsp; Directory structure
+
+The structure of this repository is highly opinionated.
+I shamelessly took the pieces I believe is the best from people and modified it.
+
+- [./flake.nix](./flake.nix) is the entrypoint for `nixos-rebuild` and `home-manager` commands.
+- [./flake.lock](./flake.lock) is the lock file for this flake, updated daily by [budimanjojo-bot](https://github.com/apps/budimanjojo-bot) powered by [Renovate](https://github.com/renovatebot/renovate).
+- [./flakeLib.nix](./flakeLib.nix) is where I put helper functions used in `flake.nix` file, this is where the magic happens.
+- [./lib](./lib) is where I put helper functions used in NixOS and `home-manager` modules.
+- [./packages](./packages) is where I put my own packages, updated daily by [budimanjojo-bot](https://github.com/apps/budimanjojo-bot) powered by [nvfetcher](https://github.com/berberman/nvfetcher).
+- [./overlays](./overlays) contains overlays for packages used in NixOS and `home-manager` modules.
+- [./shell.nix](./shell.nix) accessible via `nix develop` to have tools needed available in current shell.
+- [./system](./system) contains my own NixOS modules and per machine system configurations.
+- [./home](./home) contains my own `home-manager` modules and per user configurations.
+- [./chezmoi](./chezmoi) contains files used by `chezmoi`.
+
+## :inbox_tray:&nbsp; How do I bootstrap a new machine
+
+### NixOS
+
+- Clone this repository in a directory inside the machine.
+- Edit `./flake.nix` file and add the new machine specs inside `outputs.flake.nixosConfigurations` schema.
+- Create `./system/hosts/<hostname>/default.nix` for the new machine and configure it.
+- Create `./home/budiman/hosts/<hostname>.nix` for the new machine and configure it.
+- Run `git add .` then `sudo nixos-rebuild switch --flake .#<hostname>` and I'm done.
+
+### Non NixOS
+
+- Install Nix and enable Flake.
+- Edit `./flake.nix` file and add the new machine specs inside `outputs.flake.homeConfigurations` schema.
+- Create `./home/budiman/hosts/<hostname>.nix` for the new machine and configure it.
+- Run `git add .` then `nix run nixpkgs.home-manager -c home-manager switch --flake .#budiman@<hostname>` and I'm done.
+
+## :pencil:&nbsp; Neovim
+
+My `neovim` setup is packaged with [nixvim](https://github.com/nix-community/nixvim) and exposed at `legacyPackages.neovim` from this flake.
+You can run it directly if you have `nix` installed and `flakes` enabled with: `nix run github:budimanjojo/nix-config#neovim`.
+
 # 🚀 Installation
 
 > **⚠️ Use this configuration at your own risk! ⚠️** <br>
