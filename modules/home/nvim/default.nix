@@ -4,12 +4,6 @@
   pkgs,
   ...
 }:
-{
-  programs.neovim = {
-    enable = true;
-    vimAlias = true;
-  };
-}
 let
   cfg = config.myHome.editor.neovim;
 in
