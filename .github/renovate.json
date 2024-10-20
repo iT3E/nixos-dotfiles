@@ -1,0 +1,29 @@
+{
+  "extends": ["github>iT3E/renovate-config:default.json5"],
+  "username": "iT3E-bot[bot]",
+  "gitAuthor": "iT3E-bot <111944664+iT3E-bot[bot]@users.noreply.github.com>",
+  "repositories": ["iT3E/nix-dotfiles"],
+  "automerge": true,
+  "ignoreTests": true,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["after 1am and before 3am"]
+  },
+  "nix": {
+    "enabled": true
+  },
+  "regexManagers": [
+    {
+      "fileMatch": ["chezmoi\\/\\.chezmoiscripts\\/.+\\.sh\\.tmpl$"],
+      "matchStrings": [
+        "# renovate: depName=(?<depName>.*) datasource=(?<datasource>.*)\\n\\s*current_\\w+_version=(?<currentValue>.+)\\b"
+      ]
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDepNames": "wez/wezterm",
+      "versioning": "regex:^(?<major>\\d{4})(?<minor>\\d{2})(?<patch>\\d{2})-(?<build>\\d+)-(?<revision>.+)$"
+    }
+  ]
+}
