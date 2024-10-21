@@ -12,9 +12,9 @@
   neovim = inputs.nixvim.legacyPackages.makeNixvimWithModule {
     # make nixvim use the same pkgs with my overlays added
     inherit pkgs;
-    # extraSpecialArgs = {
-    #   myPkgs = self.legacyPackages;
-    # };
+    extraSpecialArgs = {
+      myPkgs = self.legacyPackages;
+    };
     module.imports = [ ../modules/home/nvim];
   };
 }
