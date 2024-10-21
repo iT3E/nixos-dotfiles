@@ -21,7 +21,7 @@
     extraSpecialArgs = { inherit inputs username host; };
     users.${username} = {
       home.packages = with pkgs; [
-        neovim  
+        self.legacyPackages.${system}.neovim  
       ];
       imports = 
         if (host == "desktop") then 
