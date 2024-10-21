@@ -1,14 +1,14 @@
 {
-  config = {
-    autoGroups.disabledeindenthastag.clear = true;
-    autoGroups.disableautocomment.clear = true;
-    autoGroups.ftdetection.clear = true;
-    autoGroups.ftconfiguration.clear = true;
-    autoGroups.closewithq.clear = true;
-    autoGroups.autoimportformatgo.clear = true;
-    autoGroups.autoformatnix.clear = true;
-    autoGroups.choicepopup.clear = true;
-
+  # config = {
+  #   autoGroups.disabledeindenthastag.clear = true;
+  #   autoGroups.disableautocomment.clear = true;
+  #   autoGroups.ftdetection.clear = true;
+  #   autoGroups.ftconfiguration.clear = true;
+  #   autoGroups.closewithq.clear = true;
+  #   autoGroups.autoimportformatgo.clear = true;
+  #   autoGroups.autoformatnix.clear = true;
+  #   autoGroups.choicepopup.clear = true;
+  #
     autoCmd = [
       ## Disable removing indentation on files when first letter is # except some filetypes
       {
@@ -173,5 +173,5 @@
         end
       end
     '';
-  };
+  # };
 }
