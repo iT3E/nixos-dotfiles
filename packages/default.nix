@@ -13,7 +13,7 @@
     # make nixvim use the same pkgs with my overlays added
     inherit pkgs;
     extraSpecialArgs = {
-      myPkgs = self.legacyPackages;
+      myPkgs = self.legacyPackages.${system};
     };
     module.imports = [ ../modules/home/nvim];
   };
