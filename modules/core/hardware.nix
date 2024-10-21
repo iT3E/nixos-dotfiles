@@ -1,12 +1,17 @@
 { pkgs, ... }:
 {  
   hardware = {
-    graphics = {
+    bluetooth = {
       enable = true;
-      extraPackages = with pkgs; [
-    
-      ];
+      poweronBoot = true;
     };
+
+    # graphics = {
+    #   enable = true;
+    #   extraPackages = with pkgs; [
+    #
+    #   ];
+    # };
   };
   hardware.enableRedistributableFirmware = true;
 }
