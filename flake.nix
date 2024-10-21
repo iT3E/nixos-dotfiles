@@ -85,7 +85,11 @@ outputs = { nixpkgs, self, ...} @ inputs:
     lib = nixpkgs.lib;
   in
   {
+    formatter.${system} = pkgs.nixfmt-rfc-style;
+    legacyPackages.${system} = import ./packages { inherit inputs self pkgs; };
+
     nixosConfigurations = {
+
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [ ./hosts/desktop ];
