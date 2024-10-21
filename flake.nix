@@ -61,69 +61,104 @@
     };
   };
 
-  outputs =
-    { flake-parts, ... }@inputs:
-    let
-      # function to make `pkgs` for defined system with my overlays
-      mkPkgsWithSystem =
-        system:
-        import inputs.nixpkgs {
-          inherit system;
-          overlays = builtins.attrValues (import ./overlays { inherit inputs; });
-          config = {
-            allowUnfree = true;
-            allowUnfreePredicate = _: true;
-          };
-        };
-
-      flakeLib = import ./flakeLib.nix { inherit inputs mkPkgsWithSystem; };
-    in
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      # systems for which you want to build the `perSystem` attributes
-      systems = [ "x86_64-linux" ];
-
-      # everything below `perSystem` will be enumerated and have `${system}`
-      # added in the middle by `flake-parts`
-      perSystem =
-        {
-          system,
-          inputs',
-          self',
-          pkgs,
-          ...
-        }:
-        {
-          # override pkgs used by everything in `perSystem` to have my overlays
-          _module.args.pkgs = mkPkgsWithSystem system;
-          # accessible via `nix fmt` to format code
-          formatter = pkgs.nixfmt-rfc-style;
-          # accessible via `nix build .#<name>`
-          legacyPackages = import ./packages { inherit inputs' self' pkgs; };
-          # accessible via `nix develop`
-          devShells.default = import ./shell.nix { inherit inputs' pkgs; };
-        };
-
-      # all the other flake outputs those don't require `${system}`
-      # string will be here and handled by `flake-parts`
-      flake = {
-        nixosConfigurations = {
-          # this is a NixOS live CD that has SSH enabled and some of my stuffs baked in
-          # build with `nix build .#nixosConfigurations.livecd.config.system.build.isoImage`
-          nixos-livecd = flakeLib.mkSystem {
-            hostname = "nixos-livecd";
-            homeUsers = [ ];
-            baseModules = [ ./system/hosts ];
-          };
-          iT3E-main = flakeLib.mkSystem { hostname = "iT3E-main"; };
-          iT3E-nas = flakeLib.mkSystem {
-            hostname = "iT3E-nas";
-            extraModules = [ inputs.disko.nixosModules.disko ];
-          };
-        };
-
-        homeConfigurations = {
-          "iT3E@it3E-ubuntu" = flakeLib.mkHome { hostname = "iT3E-ubuntu"; };
-        };
+outputs = { nixpkgs, self, ...} @ inputs:
+  let
+    username = "it";
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+    lib = nixpkgs.lib;
+  in
+  {
+    nixosConfigurations = {
+      desktop = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [ ./hosts/desktop ];
+        specialArgs = { host="desktop"; inherit self inputs username ; };
+      };
+      laptop = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [ ./hosts/laptop ];
+        specialArgs = { host="laptop"; inherit self inputs username ; };
+      };
+       vm = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [ ./hosts/vm ];
+        specialArgs = { host="vm"; inherit self inputs username ; };
       };
     };
+  };
 }
+
+
+### budimanjojo outputs ###
+#
+#
+#   outputs =
+#     { flake-parts, ... }@inputs:
+#     let
+#       # function to make `pkgs` for defined system with my overlays
+#       mkPkgsWithSystem =
+#         system:
+#         import inputs.nixpkgs {
+#           inherit system;
+#           overlays = builtins.attrValues (import ./overlays { inherit inputs; });
+#           config = {
+#             allowUnfree = true;
+#             allowUnfreePredicate = _: true;
+#           };
+#         };
+#
+#       flakeLib = import ./flakeLib.nix { inherit inputs mkPkgsWithSystem; };
+#     in
+#     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+#       # systems for which you want to build the `perSystem` attributes
+#       systems = [ "x86_64-linux" ];
+#
+#       # everything below `perSystem` will be enumerated and have `${system}`
+#       # added in the middle by `flake-parts`
+#       perSystem =
+#         {
+#           system,
+#           inputs',
+#           self',
+#           pkgs,
+#           ...
+#         }:
+#         {
+#           # override pkgs used by everything in `perSystem` to have my overlays
+#           _module.args.pkgs = mkPkgsWithSystem system;
+#           # accessible via `nix fmt` to format code
+#           formatter = pkgs.nixfmt-rfc-style;
+#           # accessible via `nix build .#<name>`
+#           legacyPackages = import ./packages { inherit inputs' self' pkgs; };
+#           # accessible via `nix develop`
+#           devShells.default = import ./shell.nix { inherit inputs' pkgs; };
+#         };
+#
+#       # all the other flake outputs those don't require `${system}`
+#       # string will be here and handled by `flake-parts`
+#       flake = {
+#         nixosConfigurations = {
+#           # this is a NixOS live CD that has SSH enabled and some of my stuffs baked in
+#           # build with `nix build .#nixosConfigurations.livecd.config.system.build.isoImage`
+#           nixos-livecd = flakeLib.mkSystem {
+#             hostname = "nixos-livecd";
+#             homeUsers = [ ];
+#             baseModules = [ ./system/hosts ];
+#           };
+#           iT3E-main = flakeLib.mkSystem { hostname = "iT3E-main"; };
+#           iT3E-nas = flakeLib.mkSystem {
+#             hostname = "iT3E-nas";
+#             extraModules = [ inputs.disko.nixosModules.disko ];
+#           };
+#         };
+#
+#         homeConfigurations = {
+#           "iT3E@it3E-ubuntu" = flakeLib.mkHome { hostname = "iT3E-ubuntu"; };
+#         };
+#       };
+#     };
+# }
