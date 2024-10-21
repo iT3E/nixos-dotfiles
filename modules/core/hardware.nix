@@ -3,7 +3,7 @@
   hardware = {
     bluetooth = {
       enable = true;
-      poweronBoot = true;
+      powerOnBoot = true;
     };
 
     # graphics = {
