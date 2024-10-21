@@ -20,6 +20,9 @@
     useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs username host; };
     users.${username} = {
+      home.packages = with pkgs; [
+        neovim  
+      ];
       imports = 
         if (host == "desktop") then 
           [ ./../home/default.desktop.nix ] 
