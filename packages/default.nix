@@ -15,6 +15,6 @@
     # extraSpecialArgs = {
     #   myPkgs = self.legacyPackages;
     # };
-    module.imports = [ ../home/it/config/neovim ];
+    module.imports = [ ../modules/home/nvim];
   };
 }
