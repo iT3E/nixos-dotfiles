@@ -1,5 +1,5 @@
 {
-  programs.nixvim = {
+  config = {
     autoGroups = {
       disabledeindenthastag.clear = true;
       disableautocomment.clear = true;

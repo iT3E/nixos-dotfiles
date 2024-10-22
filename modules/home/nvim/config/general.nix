@@ -1,5 +1,5 @@
 {
-  programs.nixvim = {
+  config = {
     extraConfigLua = ''
       -- General options
       vim.cmd("filetype plugin indent on")
