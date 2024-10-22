@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
   config = {
-    extraPlugins = [
-      pkgs.vimPlugins.lsp_signature-nvim
-      pkgs.vimPlugins.SchemaStore-nvim
-      pkgs.vimPlugins.neodev-nvim
+    extraPlugins = with pkgs.vimPlugins; [
+      lsp_signature-nvim
+      SchemaStore-nvim
+      neodev-nvim
     ];
     plugins = {
       trouble.enable = true;
