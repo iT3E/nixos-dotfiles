@@ -160,20 +160,21 @@
         };
       }
     ];
-    extraConfigLua = ''
-      -- Filetype detection function
-      local detectFt = function()
-        local fpath = vim.fn.expand '%:p'
-        if string.match(fpath, '.*/playbooks/.*%.yaml') or string.match(fpath, '.*/playbooks/.*%.yaml') then
-          vim.o.filetype = 'yaml.ansible'
-        elseif string.match(fpath, '.*/inventory/hosts%.yaml') or string.match(fpath, '.*/inventory/hosts%.yaml') then
-          vim.o.filetype = 'yaml.ansible'
-        elseif string.match(fpath, '.*/%.chezmoiscripts/.*%.sh.tmpl') then
-          vim.o.filetype = 'sh.chezmoitmpl'
-        elseif string.match(fpath, '.*/%.chezmoiscripts/.*%.fish.tmpl') then
-          vim.o.filetype = 'fish.chezmoitmpl'
-        end
-      end
-    '';
   };
+
+  extraConfigLua = ''
+    -- Filetype detection function
+    local detectFt = function()
+      local fpath = vim.fn.expand '%:p'
+      if string.match(fpath, '.*/playbooks/.*%.yaml') or string.match(fpath, '.*/playbooks/.*%.yaml') then
+        vim.o.filetype = 'yaml.ansible'
+      elseif string.match(fpath, '.*/inventory/hosts%.yaml') or string.match(fpath, '.*/inventory/hosts%.yaml') then
+        vim.o.filetype = 'yaml.ansible'
+      elseif string.match(fpath, '.*/%.chezmoiscripts/.*%.sh.tmpl') then
+        vim.o.filetype = 'sh.chezmoitmpl'
+      elseif string.match(fpath, '.*/%.chezmoiscripts/.*%.fish.tmpl') then
+        vim.o.filetype = 'fish.chezmoitmpl'
+      end
+    end
+  '';
 }
