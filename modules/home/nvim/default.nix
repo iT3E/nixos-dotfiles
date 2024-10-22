@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   imports = [
     ./config/plugins.nix
     ./config/general.nix
