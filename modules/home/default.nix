@@ -13,7 +13,7 @@ in
 
   imports =
        [inputs.nixvim.homeManagerModules.nixvim]
-       [(import ./bat.nix)]                       # better cat command
+    ++ [(import ./bat.nix)]                       # better cat command
     ++ [(import ./btop.nix)]                      # resouces monitor 
     ++ [(import ./cava.nix)]                      # audio visualizer
     ++ [(import ./discord.nix)]                   # discord with catppuccin theme
