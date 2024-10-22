@@ -10,11 +10,15 @@
   tokyonight-icon-theme = pkgs.callPackage ./tokyonight-icon-theme/default.nix { };
   nvim-plugins = pkgs.callPackage ./nvim-plugins/default.nix { };
   neovim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
-    # make nixvim use the same pkgs with my overlays added
     inherit pkgs;
-    # extraSpecialArgs = {
-    #   myPkgs = self.legacyPackages
-    # };
-    module.imports = [ ../modules/home/nvim];
+    module = ../modules/home/nvim;  # Direct path instead of using imports
   };
+  # neovim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
+  #   # make nixvim use the same pkgs with my overlays added
+  #   inherit pkgs;
+  #   # extraSpecialArgs = {
+  #   #   myPkgs = self.legacyPackages
+  #   # };
+  #   module.imports = [ ../modules/home/nvim];
+  # };
 }
