@@ -12,7 +12,7 @@ in
   imports = [ ./lsp.nix ];
   config = {
     ## load the lua snippets from nix store
-    extraConfigLua = "require('luasnip.loaders.from_lua').lazy_load({paths = '${./snippets}'})";
+    # extraConfigLua = "require('luasnip.loaders.from_lua').lazy_load({paths = '${./snippets}'})";
 
     extraFiles = {
       ## These are raw lua files of plugin configs so I can require them in the plugin set
