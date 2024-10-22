@@ -194,7 +194,7 @@
             };
             golangci_lint = {
               enable = true;
-              package = pkgs.unstable.golangci-lint;
+              package = pkgs.golangci-lint;
             };
             markdownlint.enable = true;
             write_good.enable = true;
