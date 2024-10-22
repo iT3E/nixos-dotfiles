@@ -7,5 +7,10 @@
     ./config/keymaps.nix
   ];
 
+  programs.nixvim = {
+    enable = true;
+    # other nixvim options
+  };
+
   vim.extraFiles."lua/utils.lua" = builtins.readFile ./config/lua/utils.lua;
 }
