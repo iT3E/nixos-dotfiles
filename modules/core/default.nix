@@ -1,4 +1,4 @@
-{ pkgs, inputs, nixpkgs, self, username, host, ...}:
+{ pkgs, inputs, nixpkgs, self, username, host, system, ...}:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -21,7 +21,7 @@
     extraSpecialArgs = { inherit inputs username host; };
     users.${username} = {
       home.packages = with pkgs; [
-        neovim
+        self.legacyPackages.${system}.neovim
       ];
       imports = 
         if (host == "desktop") then 
