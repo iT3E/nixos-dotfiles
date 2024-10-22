@@ -15,6 +15,10 @@
     ./virtualization.nix
   ];
 
+  home.packages = with pkgs; [
+    neovim
+  ];
+
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
