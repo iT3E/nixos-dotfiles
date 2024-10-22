@@ -1,19 +1,22 @@
 {
-  config = {
+  vim = {
     ## Highlght on yank
-    autoGroups.yankhighlight.clear = true;
-    # autoCmd = [
-    #   {
-    #     event = [ "TextYankPost" ];
-    #     pattern = [ "*" ];
-    #     group = "yankhighlight";
-    #     callback = {
-    #       __raw = "function()
-    #         vim.highlight.on_yank()
-    #       end";
-    #     };
-    #   }
-    # ];
+    autoGroups = {
+      yankhighlight.clear = true;
+    };
+
+    autoCmd = [
+      {
+        event = [ "TextYankPost" ];
+        pattern = [ "*" ];
+        group = "yankhighlight";
+        callback = {
+          __raw = "function()
+            vim.highlight.on_yank()
+          end";
+        };
+      }
+    ];
 
     opts = {
       background = "dark";
