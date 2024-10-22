@@ -10,7 +10,7 @@ in
 
   ## But, to configure LSP, it's easier to make use of nixvim provided module so I use that
   # imports = [ ./lsp.nix ];
-  vim = {
+  config = {
     ## load the lua snippets from nix store
     # extraConfigLua = "require('luasnip.loaders.from_lua').lazy_load({paths = '${./snippets}'})";
 

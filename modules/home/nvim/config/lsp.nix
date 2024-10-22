@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  vim = {
+  config = {
     extraPlugins = with pkgs.vimPlugins; [
       lsp_signature-nvim
       SchemaStore-nvim

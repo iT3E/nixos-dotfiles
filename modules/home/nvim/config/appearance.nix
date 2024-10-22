@@ -1,5 +1,5 @@
 {
-  vim = {
+  config = {
     ## Highlght on yank
     autoGroups = {
       yankhighlight.clear = true;

@@ -1,5 +1,5 @@
 {
-  vim = {
+  config = {
     autoGroups = {
       disabledeindenthastag.clear = true;
       disableautocomment.clear = true;
