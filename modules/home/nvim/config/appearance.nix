@@ -1,5 +1,5 @@
 {
-  config = {
+  programs.nixvim = {
     ## Highlght on yank
     autoGroups = {
       yankhighlight.clear = true;

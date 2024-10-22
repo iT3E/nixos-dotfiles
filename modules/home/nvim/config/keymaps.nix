@@ -1,5 +1,5 @@
 {
-  config = {
+  programs.nixvim = {
     extraConfigLua = ''
       -- Space is <Leader>
       vim.keymap.set("", "<Space>", "<Nop>", { silent = true })
