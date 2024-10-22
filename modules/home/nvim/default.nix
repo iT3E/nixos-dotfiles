@@ -14,5 +14,3 @@ let
     vim.extraFiles."lua/utils.lua" = builtins.readFile ./config/lua/utils.lua;
   };
 in nixvimConfig
-
-}
