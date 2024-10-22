@@ -1,18 +1,20 @@
 { pkgs, inputs, nixpkgs, self, username, host, system, ...}:
-let
-  neovimconfig = import ../modules/home/nvim;
-  nvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
-    inherit pkgs;
-    module = neovimconfig;
-  };
-in
+# let
+#   neovimconfig = import ../modules/home/nvim;
+#   nvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
+#     inherit pkgs;
+#     module = neovimconfig;
+#   };
+# in
+# {
+#   home.packages = with pkgs; [
+#     nvim
+#   ];
+#
 {
-  home.packages = with pkgs; [
-    nvim
-  ];
-
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    inputs.nixvim.homeManagerModules.nixvim
     ./bootloader.nix
     ./hardware.nix
     ./xserver.nix
