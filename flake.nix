@@ -92,15 +92,15 @@ outputs = { nixpkgs, self, ...} @ inputs:
 
       desktop = nixpkgs.lib.nixosSystem {
         inherit system;
-        formatter.${system} = pkgs.nixfmt-rfc-style;
-        legacyPackages.${system} = import ./packages { inherit inputs self pkgs; };
+        formatter = pkgs.nixfmt-rfc-style;
+        legacyPackages = import ./packages { inherit inputs self pkgs; };
         modules = [ ./hosts/desktop ];
         specialArgs = { host="desktop"; inherit self inputs username ; };
       };
       laptop = nixpkgs.lib.nixosSystem {
         inherit system;
-        formatter.${system} = pkgs.nixfmt-rfc-style;
-        legacyPackages.${system} = import ./packages { inherit inputs self pkgs; };
+        formatter = pkgs.nixfmt-rfc-style;
+        legacyPackages = import ./packages { inherit inputs self pkgs; };
         modules = [ ./hosts/laptop ];
         specialArgs = { host="laptop"; inherit self inputs username ; };
       };
