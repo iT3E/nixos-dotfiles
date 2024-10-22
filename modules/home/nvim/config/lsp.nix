@@ -78,7 +78,7 @@
           ## gopls
           gopls = {
             enable = true;
-            package = pkgs.unstable.gopls;
+            package = pkgs.gopls;
             extraOptions = {
               settings = {
                 gopls = {
