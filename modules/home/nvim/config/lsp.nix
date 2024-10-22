@@ -1,11 +1,11 @@
 { pkgs, ... }:
 {
   # vim = {
-    extraPlugins = with pkgs.vimPlugins; [
-      lsp_signature-nvim
-      SchemaStore-nvim
-      neodev-nvim
-    ];
+    # extraPlugins = with pkgs.vimPlugins; [
+    #   lsp_signature-nvim
+    #   SchemaStore-nvim
+    #   neodev-nvim
+    # ];
     plugins = {
       trouble.enable = true;
       # clangd requires extra care
