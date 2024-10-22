@@ -1,16 +1,4 @@
 { pkgs, inputs, nixpkgs, self, username, host, system, ...}:
-# let
-#   neovimconfig = import ../modules/home/nvim;
-#   nvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
-#     inherit pkgs;
-#     module = neovimconfig;
-#   };
-# in
-# {
-#   home.packages = with pkgs; [
-#     nvim
-#   ];
-#
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -33,9 +21,6 @@
     useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs username host; };
     users.${username} = {
-      # home.packages = with pkgs; [
-      #   self.legacyPackages.${system}.neovim
-      # ];
       imports = 
         if (host == "desktop") then 
           [ ./../home/default.desktop.nix ] 
