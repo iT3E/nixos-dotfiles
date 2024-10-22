@@ -2,7 +2,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    inputs.nixvim.homeManagerModules.nixvim
+    # inputs.nixvim.homeManagerModules.nixvim
     ./bootloader.nix
     ./hardware.nix
     ./xserver.nix
