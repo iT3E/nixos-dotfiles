@@ -15,17 +15,13 @@
     ./virtualization.nix
   ];
 
-  home.packages = with pkgs; [
-    neovim
-  ];
-
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
     extraSpecialArgs = { inherit inputs username host; };
     users.${username} = {
       home.packages = with pkgs; [
-        self.legacyPackages.${system}.neovim  
+        neovim
       ];
       imports = 
         if (host == "desktop") then 
