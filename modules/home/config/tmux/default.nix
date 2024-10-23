@@ -10,7 +10,7 @@
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       {
-        plugin = themepack; 
+        plugin = tmux-themepack; 
         extraConfig = "set -g @themepack 'powerline/default/green'";
       }
       resurrect
