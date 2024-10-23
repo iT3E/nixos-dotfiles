@@ -2,6 +2,7 @@
   fetchFromGitHub,
   pkgs,
   callPackage,
+  self,
 }:
 
 let
