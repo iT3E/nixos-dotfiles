@@ -87,6 +87,8 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    spicetify-nix.url = "github:gerg-l/spicetify-nix";
+    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
 outputs = { nixpkgs, self, ...} @ inputs:
