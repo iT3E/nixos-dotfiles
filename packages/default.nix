@@ -9,16 +9,8 @@
   tokyonight-gtk-theme = pkgs.callPackage ./tokyonight-gtk-theme/default.nix { };
   tokyonight-icon-theme = pkgs.callPackage ./tokyonight-icon-theme/default.nix { };
   nvim-plugins = pkgs.callPackage ./nvim-plugins/default.nix { };
-  neovim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
+  neovim = (inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
     inherit pkgs;
-    module = import ../modules/home/config/nvim { inherit pkgs; };  
-  };
-  # neovim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
-  #   # make nixvim use the same pkgs with my overlays added
-  #   inherit pkgs;
-  #   # extraSpecialArgs = {
-  #   #   myPkgs = self.legacyPackages
-  #   # };
-  #   module.imports = [ ../modules/home/nvim];
-  # };
+    module = import ../modules/home/nvim;  # Remove the function call here
+  });
 }
