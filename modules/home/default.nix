@@ -1,7 +1,7 @@
 { inputs, ...}:
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
+    # inputs.home-manager.nixosModules.home-manager
     # inputs.nixvim.homeManagerModules.nixvim
     ./config/bat.nix
     ./config/btop.nix
