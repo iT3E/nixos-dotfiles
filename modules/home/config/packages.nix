@@ -1,6 +1,7 @@
 { inputs, pkgs, ... }: 
 {
   home.packages = (with pkgs; [
+    self.legacyPackages.${pkgs.system}.neovim
     entr                              # perform action when file change
     fd                                # find replacement
     file                              # Show file information 
