@@ -1,6 +1,6 @@
 { ... }: 
 {
-  imports =  [ (import ./waybar.nix)   ]
-          ++ [ (import ./settings.nix) ]
-          ++ [ (import ./style.nix)    ];
+  imports =  [ (import ./config/waybar.nix)   ]
+          ++ [ (import ./config/settings.nix) ]
+          ++ [ (import ./config/style.nix)    ];
 }

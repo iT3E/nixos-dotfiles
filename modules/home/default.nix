@@ -20,7 +20,7 @@
     ./config/nvim
     ./config/packages.nix
     ./config/retroarc.nix
-    ./config/scripts.nix
+    ./config/scripts/scripts.nix
     ./config/starship.nix
     ./config/swaylock.nix
     ./config/waybar.nix
