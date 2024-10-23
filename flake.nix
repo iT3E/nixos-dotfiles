@@ -66,6 +66,19 @@
     # https://github.com/catppuccin/nix
     catppuccin.url = "github:catppuccin/nix";
 
+    catppuccin-bat = {
+      url = "github:catppuccin/bat";
+      flake = false;
+    };
+    catppuccin-cava = {
+      url = "github:catppuccin/cava";
+      flake = false;
+    };
+    catppuccin-starship = {
+      url = "github:catppuccin/starship";
+      flake = false;
+    };
+
     # nixGL - A wrapper tool for nix OpenGL application
     # https://github.com/nix-community/nixGL
     nixgl = {
