@@ -22,7 +22,7 @@
     ./config/retroarch.nix
     ./config/scripts/scripts.nix
     ./config/starship.nix
-    ./config/steam.nix
+    # ./config/steam.nix
     ./config/swaylock.nix
     ./config/waybar
     ./config/zsh.nix
