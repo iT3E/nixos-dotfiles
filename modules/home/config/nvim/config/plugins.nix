@@ -1,4 +1,4 @@
-{ pkgs, nvim-plugins, ... }:
+{ config, pkgs, nvim-plugins, ... }:
 let
   vimPlugins = pkgs.vimPlugins // nvim-plugins;
 in
