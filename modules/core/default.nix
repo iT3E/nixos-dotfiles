@@ -1,42 +1,19 @@
-{ pkgs, inputs, nixpkgs, self, username, host, system, ...}:
+{ inputs, ...}:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
     # inputs.nixvim.homeManagerModules.nixvim
-    ./bootloader.nix
-    ./hardware.nix
-    ./xserver.nix
-    ./network.nix
-    ./pipewire.nix
-    ./program.nix
-    ./security.nix
-    ./services.nix
-    ./system.nix
-    ./wayland.nix
-    ./virtualization.nix
+    ./config/bootloader.nix
+    ./config/hardware.nix
+    ./config/xserver.nix
+    ./config/network.nix
+    ./config/pipewire.nix
+    ./config/program.nix
+    ./config/security.nix
+    ./config/services.nix
+    ./config/system.nix
+    ./config/wayland.nix
+    ./config/virtualization.nix
+    ./config/home-manager.nix
   ];
-
-  home-manager = {
-    useUserPackages = true;
-    useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs username host; };
-    users.${username} = {
-      imports = 
-        if (host == "desktop") then 
-          [ ./../home/default.desktop.nix ] 
-        else [ ./../home/default.nix ];
-      home.username = "${username}";
-      home.homeDirectory = "/home/${username}";
-      home.stateVersion = "24.05";
-      programs.home-manager.enable = true;
-    };
-  };
-
-  users.users.${username} = {
-    isNormalUser = true;
-    description = "${username}";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-  };
-  nix.settings.allowed-users = [ "${username}" ];
 }
