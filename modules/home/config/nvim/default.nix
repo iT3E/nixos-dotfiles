@@ -1,4 +1,4 @@
-{ pkgs, nvim-plugins ? null }:
+{ pkgs, nvim-plugins ? null, ... }:
 {
   imports = [
     (import ./config/plugins.nix { inherit nvim-plugins; })
