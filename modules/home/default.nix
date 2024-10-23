@@ -17,7 +17,7 @@
     ./config/kitty.nix
     ./config/swaync
     ./config/micro.nix
-    ./config/nvim
+    # ./config/nvim
     ./config/packages.nix
     ./config/retroarch.nix
     ./config/scripts/scripts.nix
