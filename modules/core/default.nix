@@ -1,4 +1,4 @@
-{ inputs, ...}:
+{ inputs, self, ...}:
 {
   imports = [
     ./config/bootloader.nix
