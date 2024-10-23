@@ -1,6 +1,6 @@
-{ pkgs, myPkgs, ... }:
+{ pkgs, nvim-plugins, ... }:
 let
-  vimPlugins = pkgs.vimPlugins // pkgs.nvim-plugins;
+  vimPlugins = pkgs.vimPlugins // nvim-plugins;
 in
 {
   ## I prefer writing plugin configs using lua because
