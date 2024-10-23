@@ -7,7 +7,7 @@
     #     module = import ../config/nvim;
     # }) 
     # (import ../../../packages { inherit inputs pkgs self; }).neovim
-    self.legacyPackages.${system}.neovim
+    ((import ../../packages { inherit inputs pkgs self; }).neovim)
     entr                              # perform action when file change
     fd                                # find replacement
     file                              # Show file information 
