@@ -1,4 +1,4 @@
-{ config, pkgs, nvim-plugins, ... }:
+{ pkgs, nvim-plugins }:
 {
   imports = [
     ./config/plugins.nix
