@@ -9,7 +9,10 @@
     # Plugins
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
-      catppuccin
+      {
+          plugin = catppuccin
+          extraConfig = "set -g @catppuccin_flavor 'mocha'"
+        }
       # {
       #   plugin = power-theme;
       #   extraConfig = "set -g @themepack 'powerline/default/green'";
