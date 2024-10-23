@@ -1,8 +1,6 @@
 { inputs, ...}:
 {
   imports = [
-    # inputs.home-manager.nixosModules.home-manager
-    # inputs.nixvim.homeManagerModules.nixvim
     ./config/bootloader.nix
     ./config/hardware.nix
     ./config/xserver.nix
@@ -14,6 +12,6 @@
     ./config/system.nix
     ./config/wayland.nix
     ./config/virtualization.nix
-    ./config/home-manager.nix
+    ./config/homemanager.nix
   ];
 }
