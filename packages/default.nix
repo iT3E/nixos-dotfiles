@@ -11,7 +11,7 @@
   nvim-plugins = pkgs.callPackage ./nvim-plugins/default.nix { };
   neovim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
     inherit pkgs;
-    module = import ../modules/home/nvim { inherit pkgs; };  
+    module = import ../modules/home/config/nvim { inherit pkgs; };  
   };
   # neovim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
   #   # make nixvim use the same pkgs with my overlays added
