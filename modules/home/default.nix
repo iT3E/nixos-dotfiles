@@ -19,11 +19,12 @@
     ./config/micro.nix
     ./config/nvim
     ./config/packages.nix
-    ./config/retroarc.nix
+    ./config/retroarch.nix
     ./config/scripts/scripts.nix
     ./config/starship.nix
+    ./config/steam.nix
     ./config/swaylock.nix
-    ./config/waybar.nix
+    ./config/waybar
     ./config/zsh.nix
   ];
 }
