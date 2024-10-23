@@ -11,7 +11,7 @@
       vim-tmux-navigator
       {
           plugin = catppuccin;
-          extraConfig = "set -g @catppuccin_flavor 'mocha'"
+          extraConfig = "set -g @catppuccin_flavor 'mocha'";
         }
       # {
       #   plugin = power-theme;
