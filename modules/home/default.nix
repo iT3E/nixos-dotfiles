@@ -1,16 +1,5 @@
 {inputs, pkgs, config, ...}: 
-let
-  neovimconfig = import ./modules/home/nvim;
-  nvim = inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
-    inherit pkgs;
-    module = neovimconfig;
-  };
-in
 {
-  home.packages = with pkgs; [
-    nvim
-  ];
-
   imports =
        [inputs.nixvim.homeManagerModules.nixvim]
     ++ [(import ./bat.nix)]                       # better cat command
