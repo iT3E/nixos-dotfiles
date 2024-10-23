@@ -15,7 +15,7 @@
   };
   config = {
     extraFiles = {
-      "lua/utils.lua" = builtins.readFile ./lua/utils.lua;
+      "lua/utils.lua" = builtins.readFile ./config/lua/utils.lua;
     };
   };
 }
