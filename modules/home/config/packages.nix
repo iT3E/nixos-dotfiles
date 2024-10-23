@@ -3,9 +3,9 @@
   home.packages = (with pkgs; [
     # inputs.self.packages.${system}.neovim
     inputs.nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule {
-      inherit pkgs;
-      module = import ../modules/home/config/nvim;
-    }
+        inherit pkgs;
+        module = import ../modules/home/config/nvim;
+      }
     entr                              # perform action when file change
     fd                                # find replacement
     file                              # Show file information 
@@ -22,7 +22,7 @@
     nix-prefetch-github
     prismlauncher                     # minecraft launcher
     ripgrep                           # grep replacement
-    tdf                               # cli pdf viewer
+    # tdf                               # cli pdf viewer
     todo                              # cli todo list
     yazi                              # terminal file manager
     gnome.zenity
