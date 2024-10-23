@@ -12,6 +12,6 @@
     ./config/system.nix
     ./config/wayland.nix
     ./config/virtualization.nix
-    ./config/homemanager.nix
+    ./config/home-manager.nix
   ];
 }
