@@ -4,7 +4,7 @@
     # inputs.self.packages.${system}.neovim
     (inputs.nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule {
         inherit pkgs;
-        module = import ../modules/home/config/nvim;
+        module = import ../config/nvim;
     }) 
     entr                              # perform action when file change
     fd                                # find replacement
