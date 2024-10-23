@@ -1,7 +1,7 @@
 { nvim-plugins ? null }:
 {
   imports = [
-    ./config/plugins.nix
+    (import ./config/plugins.nix { inherit nvim-plugins; })
     ./config/general.nix
     ./config/appearance.nix
     ./config/autocmds.nix
@@ -12,5 +12,4 @@
       "lua/utils.lua" = builtins.readFile ./lua/utils.lua;
     };
   };
-  _module.args.nvim-plugins = nvim-plugins;
 }
