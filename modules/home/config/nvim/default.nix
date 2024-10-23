@@ -6,6 +6,9 @@
     ./config/autocmds.nix
     ./config/keymaps.nix
   ];
-
-  vim.extraFiles."lua/utils.lua" = builtins.readFile ./config/lua/utils.lua;
+  config = {
+    extraFiles = {
+      "lua/utils.lua" = builtins.readFile ./lua/utils.lua;
+    };
+  };
 }
