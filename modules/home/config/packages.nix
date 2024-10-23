@@ -1,7 +1,11 @@
 { inputs, pkgs, self, ... }: 
 {
   home.packages = (with pkgs; [
-    inputs.self.packages.${system}.neovim
+    # inputs.self.packages.${system}.neovim
+    inputs.nixvim.legacyPackages.${pkgs.system}.makeNixvimWithModule {
+      inherit pkgs;
+      module = import ../modules/home/config/nvim;
+    }
     entr                              # perform action when file change
     fd                                # find replacement
     file                              # Show file information 
