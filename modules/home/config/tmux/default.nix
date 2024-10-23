@@ -10,7 +10,7 @@
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       {
-          plugin = catppuccin
+          plugin = catppuccin;
           extraConfig = "set -g @catppuccin_flavor 'mocha'"
         }
       # {
