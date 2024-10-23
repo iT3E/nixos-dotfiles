@@ -10,7 +10,7 @@ in
   home.packages = with pkgs; [
     nvim
   ];
-{
+
   imports = [
     ./config/plugins.nix
     ./config/general.nix
