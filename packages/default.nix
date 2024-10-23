@@ -13,7 +13,7 @@
     inherit pkgs;
     module = {
       imports = [ ../modules/home/config/nvim ];
-      nvim-plugins = pkgs.callPackage ./nvim-plugins/default.nix { };
+      nvim-plugins = pkgs.callPackage ./nvim-plugins/default.nix { inherit self; };
     };
   });
 }
