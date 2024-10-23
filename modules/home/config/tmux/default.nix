@@ -9,10 +9,11 @@
     # Plugins
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
-      {
-        plugin = tmux-themepack; 
-        extraConfig = "set -g @themepack 'powerline/default/green'";
-      }
+      catppuccin
+      # {
+      #   plugin = power-theme;
+      #   extraConfig = "set -g @themepack 'powerline/default/green'";
+      # }
       resurrect
       {
         plugin = continuum;
