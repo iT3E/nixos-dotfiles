@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: 
+{ inputs, pkgs, self, ... }: 
 {
   home.packages = (with pkgs; [
     self.legacyPackages.${pkgs.system}.neovim
