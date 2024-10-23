@@ -2,7 +2,6 @@
   pkgs,
   inputs,
   self,
-  config,
   ...
 }:
 {
@@ -12,11 +11,13 @@
   nvim-plugins = pkgs.callPackage ./nvim-plugins/default.nix { };
   neovim = (inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
     inherit pkgs;
-    module = { config, lib, ... }: {
-      imports = [(import ../modules/home/config/nvim {
-        inherit pkgs;
-        nvim-plugins = pkgs.callPackage ./nvim-plugins/default.nix { };
-      })];
+    module = {
+      imports = [
+        (import ../modules/home/nvim {
+          inherit pkgs;
+          nvim-plugins = pkgs.callPackage ./nvim-plugins/default.nix { };
+        })
+      ];
     };
   });
 }
