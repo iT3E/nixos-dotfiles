@@ -4,12 +4,23 @@
   programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile ./config/tmux.conf;
-    # Optional but recommended settings
-    terminal = "tmux-256color";
-    clock24 = true;
-    # You can add other tmux settings here if you don't want them in tmux.conf
-    # For example:
-    # shortcut = "a"; # Changes prefix key from C-b to C-a
-    # baseIndex = 1;  # Start windows numbering at 1
+    terminal = "screen-256color";
+    
+    # Plugins
+    plugins = with pkgs.tmuxPlugins; [
+      vim-tmux-navigator
+      {
+        plugin = power-theme;
+        extraConfig = "set -g @themepack 'powerline/default/green'";
+      }
+      resurrect
+      {
+        plugin = continuum;
+        extraConfig = ''
+          set -g @continuum-restore 'on'
+          set -g @resurrect-capture-pane-contents 'on'
+        '';
+      }
+    ];
   };
 }
