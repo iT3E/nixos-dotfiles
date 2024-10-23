@@ -12,7 +12,7 @@
   neovim = (inputs.nixvim.legacyPackages.x86_64-linux.makeNixvimWithModule {
     inherit pkgs;
     module = {
-      imports = [ ../modules/home/nvim ];
+      imports = [ ../modules/home/config/nvim ];
       nvim-plugins = pkgs.callPackage ./nvim-plugins/default.nix { };
     };
   });
