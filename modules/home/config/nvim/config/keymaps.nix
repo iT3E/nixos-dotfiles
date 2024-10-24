@@ -5,6 +5,12 @@
       vim.g.mapleader = " "
       vim.g.maplocalleader = " "
       vim.keymap.set("", "<Space>", "<Nop>", { silent = true })
+      -- Debug print
+      vim.api.nvim_create_autocmd("VimEnter", {
+        callback = function()
+          print("Leader key is: '" .. vim.inspect(vim.g.mapleader) .. "'")
+        end
+      })
     '';
     keymaps = [
       ## Fast save, save quit, force exit
