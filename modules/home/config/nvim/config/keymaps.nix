@@ -2,9 +2,9 @@
   config = {
     extraConfigLua = ''
       -- Space is <Leader>
-      vim.keymap.set("", "<Space>", "<Nop>", { silent = true })
       vim.g.mapleader = " "
       vim.g.maplocalleader = " "
+      vim.keymap.set("", "<Space>", "<Nop>", { silent = true })
     '';
     keymaps = [
       ## Fast save, save quit, force exit
