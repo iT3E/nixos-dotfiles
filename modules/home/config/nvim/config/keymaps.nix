@@ -293,7 +293,13 @@
       {
         mode = "n";
         key = "<Leader>yp";
-        action = "<cmd>let @+ = expand('%:~:.')<cr> <cmd>lua require('notify')('Yanked relative path')<cr>";
+        action.__raw = ''
+          function()
+            local path = vim.fn.expand('%:~:.')
+            vim.fn.setreg('+', path)
+            require('notify')('Yanked relative path')
+          end
+        '';
         options = {
           noremap = true;
           silent = true;
@@ -303,7 +309,13 @@
       {
         mode = "n";
         key = "<Leader>yf";
-        action = "<cmd>let @+ = expand('%:p')<cr> <cmd>lua require('notify')('Yanked full path')<cr>";
+        action.__raw = ''
+          function()
+            local path = vim.fn.expand('%:p')
+            vim.fn.setreg('+', path)
+            require('notify')('Yanked full path')
+          end
+        '';
         options = {
           noremap = true;
           silent = true;
