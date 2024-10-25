@@ -45,8 +45,16 @@
               __unkeyed-1 = "<leader>f";
               group = "files";
             }
+            {
+              __unkeyed-1 = "<leader>u";
+              group = "utils";  
               desc = "utils"
+            }
+            {
+              __unkeyed-1 = "<leader>y";
+              group = "yank";  
               desc = "yank"
+            }
           ];
           # Using telescope for spelling
           plugins.spelling.enabled = false;
