@@ -1,9 +1,4 @@
 { lib, inputs, ... }: 
-let
-  themePath = "${toString inputs.catppuccin-starship}/themes/mocha.toml";
-  themeStr = builtins.readFile themePath;
-  themeData = builtins.fromTOML themeStr;
-in
 {
   programs.starship = {
     enable = true;
@@ -16,13 +11,14 @@ in
       # right_format = "$cmd_duration";
       
       directory = {
-        format = "[ ](bold #89b4fa)[ $path ]($style)";
+        format = "[ ](bold #89b4fa)[ $path ]($style)";
         style = "bold #b4befe";
       };
 
       character = {
-        success_symbol = "[ ](bold #89b4fa)[ ➜](bold green)";
-        error_symbol = "[ ](bold #89b4fa)[ ➜](bold red)";
+        success_symbol = "[ ](bold #89b4fa)[ ➜](bold green)";
+        error_symbol = "[ ](bold #89b4fa)[ ➜](bold red)";
+        # error_symbol = "[ ](bold #89dceb)[ ✗](bold red)";
       };
 
       cmd_duration = {
@@ -34,6 +30,6 @@ in
       };        
 
       palette = "catppuccin_mocha";
-    } // themeData;
+    } // (builtins.fromTOML (builtins.readFile "${inputs.catppuccin-starship}/themes/mocha.toml"));
   };
 }
