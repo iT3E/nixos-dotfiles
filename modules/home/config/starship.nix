@@ -1,7 +1,8 @@
 { lib, inputs, ... }: 
 let
-  # Add this debug line
-  starshipPath = builtins.trace "Starship path: ${inputs.catppuccin-starship}" inputs.catppuccin-starship;
+  themePath = "${toString inputs.catppuccin-starship}/themes/mocha.toml";
+  themeStr = builtins.readFile themePath;
+  themeData = builtins.fromTOML themeStr;
 in
 {
   programs.starship = {
@@ -33,6 +34,6 @@ in
       };        
 
       palette = "catppuccin_mocha";
-    } // (builtins.fromTOML (builtins.readFile "${starshipPath}/themes/mocha.toml"));
+    } // themeData;
   };
 }
