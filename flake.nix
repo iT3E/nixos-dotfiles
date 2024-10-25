@@ -87,6 +87,7 @@
       url = "github:nix-community/nixGL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     spicetify-nix.url = "github:gerg-l/spicetify-nix";
     spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -102,7 +103,7 @@ outputs = { nixpkgs, self, ...} @ inputs:
     lib = nixpkgs.lib;
   in
   {
-    formatter = pkgs.nixfmt-rfc-style;
+    formatter.${system} = inputs.alejandra.defaultPackage.${system};
     legacyPackages = import ./packages { inherit inputs self pkgs; };
 
     nixosConfigurations = {
