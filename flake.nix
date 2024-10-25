@@ -104,7 +104,7 @@ outputs = { nixpkgs, self, ...} @ inputs:
   in
   {
     formatter.${system} = inputs.alejandra.defaultPackage.${system};
-    legacyPackages = import ./packages { inherit inputs self pkgs; };
+    legacyPackages.${system} = import ./packages { inherit inputs self pkgs; };
 
     nixosConfigurations = {
 
