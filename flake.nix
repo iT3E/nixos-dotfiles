@@ -77,7 +77,7 @@
     };
 
     catppuccin-starship = {
-      url = "github:catppuccin/starship";
+      url = "github:catppuccin/starship/main";
       flake = false;
     };
 
