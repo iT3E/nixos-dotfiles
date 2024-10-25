@@ -33,7 +33,7 @@
             {
               __unkeyed-1 = "<leader>b";
               group = "buffers";
-              desc = "Buffers"
+              desc = "buffers";
             }
 
             {
@@ -48,12 +48,12 @@
             {
               __unkeyed-1 = "<leader>u";
               group = "utils";  
-              desc = "utils"
+              desc = "utils";
             }
             {
               __unkeyed-1 = "<leader>y";
               group = "yank";  
-              desc = "yank"
+              desc = "yank";
             }
           ];
           # Using telescope for spelling
