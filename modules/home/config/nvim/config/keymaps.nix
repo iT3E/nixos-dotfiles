@@ -33,6 +33,7 @@
             {
               __unkeyed-1 = "<leader>b";
               group = "buffers";
+              desc = "Buffers"
             }
 
             {
@@ -44,6 +45,8 @@
               __unkeyed-1 = "<leader>f";
               group = "files";
             }
+              desc = "utils"
+              desc = "yank"
           ];
           # Using telescope for spelling
           plugins.spelling.enabled = false;
