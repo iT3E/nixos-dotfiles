@@ -30,6 +30,6 @@
       };        
 
       palette = "catppuccin_mocha";
-    } // (lib.importTOML "${inputs.catppuccin-starship}/themes/mocha.toml");
+    } // (builtins.fromTOML (builtins.readFile "${inputs.catppuccin-starship}/themes/mocha.toml"));
   };
 }
