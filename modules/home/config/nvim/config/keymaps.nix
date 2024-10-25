@@ -83,31 +83,8 @@
       }
       {
         mode = "n";
-        key = "<Leader>v";
-        action = ":vnew<CR>";
+        key = "<Leader>v"; action = ":vnew<CR>";
         options.desc = "Open new vertical split";
-      }
-
-      ## Move cursors in Insert mode
-      {
-        mode = "i";
-        key = "<C-k>";
-        action = "<Up>";
-      }
-      {
-        mode = "i";
-        key = "<C-j>";
-        action = "<Down>";
-      }
-      {
-        mode = "i";
-        key = "<C-h>";
-        action = "<Left>";
-      }
-      {
-        mode = "i";
-        key = "<C-l>";
-        action = "<Right>";
       }
 
       ## Tab navigation
@@ -166,20 +143,6 @@
         key = "<S-Tab>";
         action = "<gv";
         options.desc = "De-indentation";
-      }
-
-      ## Jumping
-      {
-        mode = "n";
-        key = "<Leader>hh";
-        action = "<C-o>";
-        options.desc = "Jump to older cursor position";
-      }
-      {
-        mode = "n";
-        key = "<Leader>ll";
-        action = "<C-i>";
-        options.desc = "Jump to newer cursor position";
       }
 
       ## lspconfig
@@ -314,6 +277,60 @@
         key = "<Leader>bd";
         action = ":<C-u>lua require('b64').decode()<CR>";
         options.desc = "Decode base64 encoded text";
+      }
+      {
+        mode = "n";
+        key = "<Leader>unh";
+        action = ":Telescope notify<CR>";
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Search Notification History";
+        };
+      }
+
+      # Yanks
+      {
+        mode = "n";
+        key = "<Leader>yp";
+        action = "<cmd>let @+ = expand('%:~:.')<cr> <cmd>lua require('notify')('Yanked relative path')<cr>";
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Relative Path";
+        };
+      }
+      {
+        mode = "n";
+        key = "<Leader>yf";
+        action = "<cmd>let @+ = expand('%:p')<cr> <cmd>lua require('notify')('Yanked full path')<cr>";
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Full Path";
+        };
+      }
+      {
+        mode = "n";
+        key = "<Leader>ya";
+        action = "<cmd>%y<cr>";
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Buffer Contents";
+        };
+      }
+
+      # Notif history
+      {
+        mode = "n";
+        key = "<Leader>unh";
+        action = ":Telescope notify<CR>";
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Search Notification History";
+        };
       }
     ];
   };
