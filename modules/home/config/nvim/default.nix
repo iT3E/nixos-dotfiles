@@ -5,7 +5,7 @@
     ./config/general.nix
     ./config/appearance.nix
     ./config/autocmds.nix
-    ./config/keymaps.nix
+    ./config/keymaps
   ];
   options = {
     nvim-plugins = lib.mkOption {

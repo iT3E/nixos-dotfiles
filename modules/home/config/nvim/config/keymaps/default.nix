@@ -1,4 +1,8 @@
+{ config, pkgs, lib, ... }:
 {
+  imports = [
+    ./plugin-keymaps/telescope-keymap.nix
+  ];
   config = {
     plugins.which-key = {
         enable = true;
