@@ -1,24 +1,26 @@
-programs.lazygit = {
-  enable = true;
+{
+  programs.lazygit = {
+    enable = true;
 
-  settings = {
-    gui = {
-      authorColors = {
-        "user.fullName" = "#c6a0f6";
-        "dependabot[bot]" = "#eed49f";
+    settings = {
+      gui = {
+        authorColors = {
+          "user.fullName" = "#c6a0f6";
+          "dependabot[bot]" = "#eed49f";
+        };
+        branchColors = {
+          main = "#ed8796";
+          master = "#ed8796";
+          dev = "#8bd5ca";
+        };
       };
-      branchColors = {
-        main = "#ed8796";
-        master = "#ed8796";
-        dev = "#8bd5ca";
+      git = {
+        overrideGpg = true;
       };
-    };
-    git = {
-      overrideGpg = true;
     };
   };
-};
 
-home.shellAliases = {
-  lg = "lazygit";
-};
+  home.shellAliases = {
+    lg = "lazygit";
+  };
+}
