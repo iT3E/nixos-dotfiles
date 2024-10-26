@@ -22,6 +22,7 @@ in
       "lua/plugin-configs/_gitsigns.lua" = builtins.readFile ./lua/plugin-configs/_gitsigns.lua;
       "lua/plugin-configs/_lualine.lua" = builtins.readFile ./lua/plugin-configs/_lualine.lua;
       "lua/plugin-configs/_nvim-cmp.lua" = builtins.readFile ./lua/plugin-configs/_nvim-cmp.lua;
+      "lua/plugin-configs/_nvim-web-devicons.lua" = builtins.readFile ./lua/plugin-configs/_nvim-web-devicons.lua;
       "lua/plugin-configs/_oil.lua" = builtins.readFile ./lua/plugin-configs/_oil.lua;
       "lua/plugin-configs/_sad-nvim.lua" = builtins.readFile ./lua/plugin-configs/_sad-nvim.lua;
       "lua/plugin-configs/_treesitter.lua" = builtins.readFile ./lua/plugin-configs/_treesitter.lua;
@@ -79,7 +80,10 @@ in
       # Appearance
       dressing-nvim
       guihua-lua
-      nvim-web-devicons
+      {
+        plugin = nvim-web-devicons;
+        config = "lua require('plugin-configs._nvim-web-devicons')";
+      }
       {
         plugin = lualine-nvim;
         config = "lua require('plugin-configs._lualine')";
