@@ -1,94 +1,243 @@
 {
   config = {
-    keymaps = {
-      "<leader>f'" = {
-        action = "marks";
+    keymaps = [
+    # {
+    #   mode = "n";
+    #   key = "<leader>fc";
+    #   action.__raw = ''
+    #     function()
+    #       require("telescope.builtin").find_files {
+    #         prompt_title = "Config Files",
+    #         cwd = vim.fn.stdpath "config",
+    #         follow = true,
+    #       }
+    #     end
+    #   '';
+    #   options = {
+    #     desc = "Find config files";
+    #     silent = true;
+    #   };
+    # }
+    {
+      mode = "n";
+      key = "<leader>fF";
+      action.__raw = ''
+        function()
+          require("telescope.builtin").find_files({ hidden = true, no_ignore = true})
+        end
+      '';
+      options = {
+        desc = "Find all files";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fT";
+      action.__raw = ''
+        function()
+          require("telescope.builtin").colorscheme({ enable_preview = true })
+        end
+      '';
+      options = {
+        desc = "Find theme";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>fW";
+      action.__raw = ''
+        function()
+          require("telescope.builtin").live_grep {
+            additional_args = function(args) return vim.list_extend(args, { "--hidden", "--no-ignore" }) end,
+          }
+        end
+      '';
+      options = {
+        desc = "Find words in all files";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>f?";
+      action.__raw = ''
+        function()
+          require("telescope.builtin").live_grep { grep_open_files=true }
+        end
+      '';
+      options = {
+        desc = "Find words in all open buffers";
+        silent = true;
+      };
+    }
+    (lib.mkIf config.plugins.telescope.extensions.file-browser.enable {
+      mode = "n";
+      key = "<leader>fe";
+      action = "<cmd>Telescope file_browser<CR>";
+      options = {
+        desc = "File Explorer";
+      };
+    })
+    (lib.mkIf config.plugins.telescope.extensions.frecency.enable {
+      mode = "n";
+      key = "<leader>fO";
+      action = "<cmd>Telescope frecency<CR>";
+      options = {
+        desc = "Find Frequent Files";
+      };
+    })
+    (lib.mkIf config.plugins.telescope.extensions.undo.enable {
+      mode = "n";
+      key = "<leader>fu";
+      action = "<cmd>Telescope undo<CR>";
+      options = {
+        desc = "List undo history";
+      };
+    })
+    (lib.mkIf config.plugins.telescope.extensions.manix.enable {
+      mode = "n";
+      key = "<leader>fM";
+      action = "<cmd>Telescope manix<CR>";
+      options = {
+        desc = "Search manix";
+      };
+    })
+    (lib.mkIf config.plugins.telescope.extensions.live-grep-args.enable {
+      mode = "n";
+      key = "<leader>fw";
+      action = "<cmd>Telescope live_grep_args<CR>";
+      options = {
+        desc = "Live grep (args)";
+      };
+    })
+      {
+        mode = "n";
+        key = "<leader>f'";
+        action = ":Telescope marks<CR>";
         options.desc = "View marks";
-      };
-      "<leader>f/" = {
-        action = "current_buffer_fuzzy_find";
+      }
+      {
+        mode = "n";
+        key = "<leader>f/";
+        action = ":Telescope current_buffer_fuzzy_find<CR>";
         options.desc = "Fuzzy find in current buffer";
-      };
-      "<leader>f<CR>" = {
-        action = "resume";
+      }
+      {
+        mode = "n";
+        key = "<leader>f<CR>";
+        action = ":Telescope resume<CR>";
         options.desc = "Resume action";
-      };
-      "<leader>fa" = {
-        action = "autocommands";
+      }
+      {
+        mode = "n";
+        key = "<leader>fa";
+        action = ":Telescope autocommands<CR>";
         options.desc = "View autocommands";
-      };
-      "<leader>fC" = {
-        action = "commands";
+      }
+      {
+        mode = "n";
+        key = "<leader>fC";
+        action = ":Telescope commands<CR>";
         options.desc = "View commands";
-      };
-      "<leader>fb" = {
-        action = "buffers";
+      }
+      {
+        mode = "n";
+        key = "<leader>fb";
+        action = ":Telescope buffers<CR>";
         options.desc = "View buffers";
-      };
-      "<leader>fc" = {
-        action = "grep_string";
+      }
+      {
+        mode = "n";
+        key = "<leader>fc";
+        action = ":Telescope grep_string<CR>";
         options.desc = "Grep string";
-      };
-      "<leader>fd" = {
-        action = "diagnostics";
+      }
+      {
+        mode = "n";
+        key = "<leader>fd";
+        action = ":Telescope diagnostics<CR>";
         options.desc = "View diagnostics";
-      };
-      "<leader>ff" = {
-        action = "find_files";
+      }
+      {
+        mode = "n";
+        key = "<leader>ff";
+        action = ":Telescope find_files<CR>";
         options.desc = "Find files";
-      };
-      "<leader>fh" = {
-        action = "help_tags";
+      }
+      {
+        mode = "n";
+        key = "<leader>fh";
+        action = ":Telescope help_tags<CR>";
         options.desc = "View help tags";
-      };
-      "<leader>fk" = {
-        action = "keymaps";
+      }
+      {
+        mode = "n";
+        key = "<leader>fk";
+        action = ":Telescope keymaps<CR>";
         options.desc = "View keymaps";
-      };
-      "<leader>fm" = {
-        action = "man_pages";
+      }
+      {
+        mode = "n";
+        key = "<leader>fm";
+        action = ":Telescope man_pages<CR>";
         options.desc = "View man pages";
-      };
-      "<leader>fo" = {
-        action = "oldfiles";
+      }
+      {
+        mode = "n";
+        key = "<leader>fo";
+        action = ":Telescope oldfiles<CR>";
         options.desc = "View old files";
-      };
-      "<leader>fr" = {
-        action = "registers";
+      }
+      {
+        mode = "n";
+        key = "<leader>fr";
+        action = ":Telescope registers<CR>";
         options.desc = "View registers";
-      };
-      "<leader>fs" = {
-        action = "lsp_document_symbols";
+      }
+      {
+        mode = "n";
+        key = "<leader>fs";
+        action = ":Telescope lsp_document_symbols<CR>";
         options.desc = "Search symbols";
-      };
-      "<leader>fq" = {
-        action = "quickfix";
+      }
+      {
+        mode = "n";
+        key = "<leader>fq";
+        action = ":Telescope quickfix<CR>";
         options.desc = "Search quickfix";
-      };
-      "<leader>fw" = {
-        action = "live_grep";
+      }
+      {
+        mode = "n";
+        key = "<leader>fw";
+        action = ":Telescope live_grep<CR>";
         options.desc = "Live grep";
-      };
-      # "<leader>gC" = {
-      #   action = "git_bcommits";
-      #   options.desc = "View git bcommits";
-      # };
-      "<leader>gB" = {
-        action = "git_branches";
+      }
+      {
+        mode = "n";
+        key = "<leader>gB";
+        action = ":Telescope git_branches<CR>";
         options.desc = "View git branches";
-      };
-      "<leader>gC" = {
-        action = "git_commits";
+      }
+      {
+        mode = "n";
+        key = "<leader>gC";
+        action = ":Telescope git_commits<CR>";
         options.desc = "View git commits";
-      };
-      "<leader>gs" = {
-        action = "git_status";
+      }
+      {
+        mode = "n";
+        key = "<leader>gs";
+        action = ":Telescope git_status<CR>";
         options.desc = "View git status";
-      };
-      "<leader>gS" = {
-        action = "git_stash";
+      }
+      {
+        mode = "n";
+        key = "<leader>gS";
+        action = ":Telescope git_stash<CR>";
         options.desc = "View git stashes";
-      };
-    };
+      }
+    ];
   };
 }
