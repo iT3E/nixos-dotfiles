@@ -25,6 +25,7 @@ in
       "lua/plugin-configs/_nvim-web-devicons.lua" = builtins.readFile ./lua/plugin-configs/_nvim-web-devicons.lua;
       "lua/plugin-configs/_oil.lua" = builtins.readFile ./lua/plugin-configs/_oil.lua;
       "lua/plugin-configs/_sad-nvim.lua" = builtins.readFile ./lua/plugin-configs/_sad-nvim.lua;
+      "lua/plugin-configs/_telescope.lua" = builtins.readFile ./lua/plugin-configs/_telescope.lua;
       "lua/plugin-configs/_treesitter.lua" = builtins.readFile ./lua/plugin-configs/_treesitter.lua;
       "lua/plugin-configs/_indent-blankline.lua" = builtins.readFile ./lua/plugin-configs/_indent-blankline.lua;
 
@@ -152,6 +153,11 @@ in
       bufferline-nvim
       vim-tmux-navigator
       plenary-nvim
+      telescope-fzf-native-nvim
+      {
+        plugin = telescope-nvim;
+        config = "lua require('plugin-configs._telescope')";
+      }
     ];
   };
 }
