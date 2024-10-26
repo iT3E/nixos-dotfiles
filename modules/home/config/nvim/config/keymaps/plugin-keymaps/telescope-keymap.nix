@@ -95,7 +95,7 @@
       options = {
         desc = "List undo history";
       };
-    })
+    }
     {
       mode = "n";
       key = "<leader>fM";
