@@ -45,7 +45,7 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   boot = {
-    kernelModules = ["acpi_call"];
+    kernelModules = [ "acpi_call" "btqca" "hci_uart" ];
     extraModulePackages = with config.boot.kernelPackages;
       [
         acpi_call
