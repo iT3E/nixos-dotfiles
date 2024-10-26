@@ -238,6 +238,15 @@
         action = ":Telescope git_stash<CR>";
         options.desc = "View git stashes";
       }
+      {
+        mode = "n";
+        key = "<Leader>unh";
+        action = ":Telescope notify<CR>";
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Search Notification History";
+        };
     ];
   };
 }
