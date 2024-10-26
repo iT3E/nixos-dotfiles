@@ -150,6 +150,8 @@ in
       # Other
       presence-nvim
       bufferline-nvim
+      vim-tmux-navigator
+      plenary-nvim
     ];
   };
 }
