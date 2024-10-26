@@ -34,6 +34,7 @@
           indent_blankline = {
             enabled = true;
             scope_color = "mauve";
+            colored_indent_levels = true;
           };
           nvim_surround = true;
           lsp_trouble = true;
@@ -50,12 +51,7 @@
           harpoon = true;
           headlines = true;
           hop = true;
-          indent_blankline = {
-            enabled = true;
-            colored_indent_levels = true;
-          };
           leap = true;
-          lsp_trouble = true;
           markdown = true;
           mason = true;
           mini.enabled = true;
