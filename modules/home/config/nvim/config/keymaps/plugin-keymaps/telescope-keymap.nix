@@ -72,23 +72,23 @@
         silent = true;
       };
     }
-    (lib.mkIf config.plugins.telescope.extensions.file-browser.enable {
+    {
       mode = "n";
       key = "<leader>fe";
       action = "<cmd>Telescope file_browser<CR>";
       options = {
         desc = "File Explorer";
       };
-    })
-    (lib.mkIf config.plugins.telescope.extensions.frecency.enable {
+    }
+    {
       mode = "n";
       key = "<leader>fO";
       action = "<cmd>Telescope frecency<CR>";
       options = {
         desc = "Find Frequent Files";
       };
-    })
-    (lib.mkIf config.plugins.telescope.extensions.undo.enable {
+    }
+    {
       mode = "n";
       key = "<leader>fu";
       action = "<cmd>Telescope undo<CR>";
@@ -96,22 +96,22 @@
         desc = "List undo history";
       };
     })
-    (lib.mkIf config.plugins.telescope.extensions.manix.enable {
+    {
       mode = "n";
       key = "<leader>fM";
       action = "<cmd>Telescope manix<CR>";
       options = {
         desc = "Search manix";
       };
-    })
-    (lib.mkIf config.plugins.telescope.extensions.live-grep-args.enable {
+    }
+    {
       mode = "n";
       key = "<leader>fw";
       action = "<cmd>Telescope live_grep_args<CR>";
       options = {
         desc = "Live grep (args)";
       };
-    })
+    }
       {
         mode = "n";
         key = "<leader>f'";
