@@ -28,6 +28,7 @@ in
       "lua/plugin-configs/_telescope.lua" = builtins.readFile ./lua/plugin-configs/_telescope.lua;
       "lua/plugin-configs/_treesitter.lua" = builtins.readFile ./lua/plugin-configs/_treesitter.lua;
       "lua/plugin-configs/_indent-blankline.lua" = builtins.readFile ./lua/plugin-configs/_indent-blankline.lua;
+      "lua/plugin-configs/_yanky.lua" = builtins.readFile ./lua/plugin-configs/_yanky.lua;
 
       ## lua highlighting in extraConfigLua
       "queries/nix/injections.scm" = ''
@@ -154,6 +155,10 @@ in
       vim-tmux-navigator
       plenary-nvim
       telescope-fzf-native-nvim
+      {
+        plugin = yanky-nvim;
+        config = "lua require('plugin-configs._yanky')";
+      }
       {
         plugin = telescope-nvim;
         config = "lua require('plugin-configs._telescope')";
