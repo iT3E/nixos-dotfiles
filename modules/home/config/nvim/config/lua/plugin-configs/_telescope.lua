@@ -3,6 +3,30 @@ local actions = require("telescope.actions")
 
 telescope.setup({
 	defaults = {
+		-- Layout options
+		layout_strategy = "horizontal",
+		layout_config = {
+			horizontal = {
+				prompt_position = "top",
+				preview_width = 0.55,
+				results_width = 0.8,
+			},
+			vertical = {
+				mirror = false,
+			},
+			width = 0.87,
+			height = 0.80,
+			preview_cutoff = 120,
+		},
+
+		-- Styling options
+		sorting_strategy = "ascending",
+		winblend = 0,
+		border = {},
+		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+		color_devicons = true,
+		set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+
 		prompt_prefix = " ",
 		selection_caret = " ",
 		mappings = {
