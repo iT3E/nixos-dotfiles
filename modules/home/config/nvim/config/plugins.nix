@@ -149,6 +149,7 @@ in
       b64-nvim
       # Other
       presence-nvim
+      bufferline-nvim
     ];
   };
 }
