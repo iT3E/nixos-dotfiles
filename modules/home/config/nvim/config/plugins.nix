@@ -16,6 +16,7 @@ in
 
     extraFiles = {
       ## These are raw lua files of plugin configs so I can require them in the plugin set
+      "lua/plugin-configs/_alpha.lua" = builtins.readFile ./lua/plugin-configs/_alpha.lua;
       "lua/plugin-configs/_autopairs.lua" = builtins.readFile ./lua/plugin-configs/_autopairs.lua;
       "lua/plugin-configs/_fzf-lua.lua" = builtins.readFile ./lua/plugin-configs/_fzf-lua.lua;
       "lua/plugin-configs/_gitsigns.lua" = builtins.readFile ./lua/plugin-configs/_gitsigns.lua;
@@ -60,6 +61,10 @@ in
     ];
 
     extraPlugins = with vimPlugins; [
+      {
+        plugin = alpha-nvim;
+        config = "lua require('plugin-configs._alpha')";
+      }
       # Syntax highlighting
       ansible-vim
       {
