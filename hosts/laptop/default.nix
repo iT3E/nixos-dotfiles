@@ -46,7 +46,7 @@
 
   boot = {
     kernelModules = [ "acpi_call" "btqca" "hci_uart" ];
-    kernelPackages = pkgs.linuxPackages_6_9;
+    kernelPackages = pkgs.linuxPackages_6_10;
     extraModulePackages = with config.boot.kernelPackages;
       [
         acpi_call
