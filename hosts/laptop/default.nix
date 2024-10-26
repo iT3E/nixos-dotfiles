@@ -3,7 +3,7 @@
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
-    inputs.nixos-hardware.nixosModules.dell-xps-i3-9310
+    inputs.nixos-hardware.nixosModules.dell-xps-13-9310
   ];
 
   environment.systemPackages = with pkgs; [
