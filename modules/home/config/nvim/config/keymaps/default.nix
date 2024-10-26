@@ -58,6 +58,11 @@
               group = "window";  
               desc = "window";
             }
+            {
+              __unkeyed-1 = "<leader>l";
+              group = "lsp";  
+              desc = "lsp";
+            }
           ];
           # Using telescope for spelling
           plugins.spelling.enabled = false;
