@@ -15,6 +15,7 @@
     ./config/hyprland
     ./config/tmux
     ./config/kitty.nix
+    ./config/lazygit.nix
     ./config/swaync
     ./config/micro.nix
     # ./config/nvim
@@ -28,4 +29,3 @@
     ./config/zsh.nix
   ];
 }
-
