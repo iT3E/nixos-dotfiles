@@ -17,6 +17,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    #Hardware profile
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     hypr-contrib.url = "github:hyprwm/contrib";
     hyprpicker.url = "github:hyprwm/hyprpicker";
   

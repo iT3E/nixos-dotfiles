@@ -1,8 +1,9 @@
-{ pkgs, config, self, ... }: 
+{ pkgs, config, self, inputs, ... }: 
 {
   imports = [
     ./hardware-configuration.nix
     ./../../modules/core
+    inputs.nixos-hardware.nixosModules.dell-xps-i3-9310
   ];
 
   environment.systemPackages = with pkgs; [
