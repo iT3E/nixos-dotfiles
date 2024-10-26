@@ -1,12 +1,12 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   programs.git = {
     enable = true;
-    
+
     userName = "iT3E";
     userEmail = "26583558+iT3E@users.noreply.github.com";
-    
-    extraConfig = { 
+
+    extraConfig = {
       init.defaultBranch = "main";
       credential.helper = "store";
       merge.conflictstyle = "diff3";
@@ -24,4 +24,5 @@
     };
   };
   home.packages = [ pkgs.gh ]; # pkgs.git-lfs ];
+  #test
 }
