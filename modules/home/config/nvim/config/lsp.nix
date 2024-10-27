@@ -58,16 +58,6 @@
         '';
         onAttach = ''
           require 'lsp_signature'.on_attach()
-          local keymap = vim.keymap
-          local opts = { buffer = bufnr }
-
-          keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, { unpack(opts), desc = "Do LSP rename action" })
-          keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, { unpack(opts), desc = "Do LSP code action" })
-          keymap.set('n', 'gd', vim.lsp.buf.definition, { unpack(opts), desc = "Do LSP get definition action" })
-          keymap.set('n', 'gD', vim.lsp.buf.declaration, { unpack(opts), desc = "Do LSP get definition action" })
-          keymap.set('n', 'gh', function() return require('utils').fix_buf_hover() end, { unpack(opts), desc = "Do LSP hover action" })
-          keymap.set('n', 'gr', vim.lsp.buf.references, { unpack(opts), desc = "Do LSP get references action" })
-          keymap.set('n', 'gi', vim.lsp.buf.implementation, { unpack(opts), desc = "Do LSP get implementation action" })
         '';
         servers = {
           ansiblels.enable = true; # ansiblels
@@ -111,6 +101,8 @@
           nil-ls.enable = true; # nil
           pyright.enable = true; # pyright
           lua-ls.enable = true; # lua-language-server
+
+          terraformls.enable = true;
 
           ## yamlls
           yamlls = {
