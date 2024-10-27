@@ -9,7 +9,7 @@ let custom = {
     background = "11111B";
     opacity = "0.98";
 };
-in 
+in
 {
   programs.waybar.style = ''
 
@@ -31,7 +31,7 @@ in
     #workspaces {
         font-size: 18px;
         padding-left: 15px;
-        
+
     }
     #workspaces button {
         color: ${custom.text_color};
@@ -45,7 +45,7 @@ in
         color: #b4befe;
     }
 
-    #tray, #pulseaudio, #network, #cpu, #memory, #disk, #clock, #battery, #custom-notification {
+    #tray, #pulseaudio, #network, #cpu, #memory, #clock, #battery, #custom-notification {
         font-size: ${custom.font_size};
         color: ${custom.text_color};
     }
@@ -59,16 +59,6 @@ in
         padding-left: 9px;
         padding-right: 9px;
     }
-    #disk {
-        padding-left: 9px;
-        padding-right: 15px;
-    }
-
-    #tray {
-        padding: 0 20px;
-        margin-left: 7px;
-    }
-
     #pulseaudio {
         padding-left: 15px;
         padding-right: 9px;
@@ -87,7 +77,7 @@ in
         padding-left: 20px;
         padding-right: 20px;
     }
-    
+
     #clock {
         padding-left: 9px;
         padding-right: 15px;
