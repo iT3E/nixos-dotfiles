@@ -186,6 +186,7 @@ in
       }
       b64-nvim
       # Other
+      lazygit-nvim
       presence-nvim
       bufferline-nvim
       vim-tmux-navigator
