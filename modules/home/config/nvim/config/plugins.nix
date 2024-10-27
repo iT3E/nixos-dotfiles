@@ -48,45 +48,6 @@ in
           ]
           (#match? @_path "^extraConfigVim(Pre|Post)?$"))
       '';
-    };
-    # extraFiles = {
-    #   ## These are raw lua files of plugin configs so I can require them in the plugin set
-    #   "lua/plugin-configs/_alpha.lua" = builtins.readFile ./lua/plugin-configs/_alpha.lua;
-    #   "lua/plugin-configs/_autopairs.lua" = builtins.readFile ./lua/plugin-configs/_autopairs.lua;
-    #   "lua/plugin-configs/_fzf-lua.lua" = builtins.readFile ./lua/plugin-configs/_fzf-lua.lua;
-    #   "lua/plugin-configs/_gitsigns.lua" = builtins.readFile ./lua/plugin-configs/_gitsigns.lua;
-    #   "lua/plugin-configs/_lualine.lua" = builtins.readFile ./lua/plugin-configs/_lualine.lua;
-    #   "lua/plugin-configs/_noice.lua" = builtins.readFile ./lua/plugin-configs/_noice.lua;
-    #   "lua/plugin-configs/_nvim-cmp.lua" = builtins.readFile ./lua/plugin-configs/_nvim-cmp.lua;
-    #   "lua/plugin-configs/_nvim-web-devicons.lua" = builtins.readFile ./lua/plugin-configs/_nvim-web-devicons.lua;
-    #   "lua/plugin-configs/_oil.lua" = builtins.readFile ./lua/plugin-configs/_oil.lua;
-    #   "lua/plugin-configs/_sad-nvim.lua" = builtins.readFile ./lua/plugin-configs/_sad-nvim.lua;
-    #   "lua/plugin-configs/_telescope.lua" = builtins.readFile ./lua/plugin-configs/_telescope.lua;
-    #   "lua/plugin-configs/_treesitter.lua" = builtins.readFile ./lua/plugin-configs/_treesitter.lua;
-    #   "lua/plugin-configs/_indent-blankline.lua" = builtins.readFile ./lua/plugin-configs/_indent-blankline.lua;
-    #   "lua/plugin-configs/_yanky.lua" = builtins.readFile ./lua/plugin-configs/_yanky.lua;
-    #
-    #   ## lua highlighting in extraConfigLua
-    #   "queries/nix/injections.scm" = ''
-    #     ;; extends
-    #
-    #     (binding
-    #       attrpath: (attrpath (identifier) @_path)
-    #       expression: [
-    #         (string_expression (string_fragment) @lua)
-    #         (indented_string_expression (string_fragment) @lua)
-    #       ]
-    #       (#match? @_path "^extraConfigLua(Pre|Post)?$"))
-    #
-    #     (binding
-    #       attrpath: (attrpath (identifier) @_path)
-    #       expression: [
-    #         (string_expression (string_fragment) @vim)
-    #         (indented_string_expression (string_fragment) @vim)
-    #       ]
-    #       (#match? @_path "^extraConfigVim(Pre|Post)?$"))
-    #   '';
-    # };
 
     ## dependencies needed for plugins
     extraPackages = with pkgs; [
