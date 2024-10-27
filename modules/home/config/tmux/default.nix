@@ -38,9 +38,11 @@
       {
         plugin = resurrect;
         extraConfig = ''
-            set -g @resurrect-save-command-strategy 'ps'
-            set -g @resurrect-hook-post-save-all 'sed -E "s|:/nix/store/[^ ]+/bin/nvim.*nvim-ruby'\'''([[:space:]]+([^[:space:]]+))?|:nvim \\2|" -i <full-path-to-resurrect-dir>/last'
-            set -g @resurrect-processes '"~nvim"'
+          resurrect_dir="$HOME/.tmux/resurrect"
+          set -g @resurrect-dir $resurrect_dir
+          set -g @resurrect-hook-post-save-all "sed -i 's/--cmd lua.*--cmd set packpath/--cmd \"lua/g; s/--cmd set rtp.*\$/\"/' $resurrect_dir/last"
+          set -g @resurrect-capture-pane-contents 'on'
+          set -g @resurrect-processes '"~nvim"'
         '';
       }
       {
