@@ -5,6 +5,7 @@
     ./config/general.nix
     ./config/appearance.nix
     ./config/autocmds.nix
+    ./config/lsp.nix
     ./config/keymaps
   ];
   options = {
