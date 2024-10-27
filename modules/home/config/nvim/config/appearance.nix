@@ -22,7 +22,7 @@
       background = "dark";
       termguicolors = true;
       signcolumn = "yes";
-      cursorcolumn = true;
+      cursorcolumn = false;
     };
 
     colorschemes.catppuccin = {
