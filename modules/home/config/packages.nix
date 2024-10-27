@@ -6,6 +6,7 @@
     fd                                # find replacement
     file                              # Show file information
     fzf                               # fuzzy finder
+    google-chrome
     gifsicle                          # gif utility
     gimp
     gtrash                            # rm replacement, put deleted files in system trash
