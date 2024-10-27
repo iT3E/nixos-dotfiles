@@ -49,7 +49,9 @@
         plugin = continuum;
         extraConfig = ''
           set -g @continuum-restore 'on'
-          set -g @resurrect-capture-pane-contents 'on'
+          set -g @continuum-save-interval '1'
+          set -g @continuum-boot 'on'         # Enable automatic tmux start
+          set -g status-right 'Continuum: #{continuum_status}'  # Optional: shows status
         '';
       }
     ];
