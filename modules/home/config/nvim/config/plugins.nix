@@ -21,6 +21,7 @@ in
       "lua/plugin-configs/_fzf-lua.lua" = builtins.readFile ./lua/plugin-configs/_fzf-lua.lua;
       "lua/plugin-configs/_gitsigns.lua" = builtins.readFile ./lua/plugin-configs/_gitsigns.lua;
       "lua/plugin-configs/_lualine.lua" = builtins.readFile ./lua/plugin-configs/_lualine.lua;
+      "lua/plugin-configs/_noice.lua" = builtins.readFile ./lua/plugin-configs/_noice.lua;
       "lua/plugin-configs/_nvim-cmp.lua" = builtins.readFile ./lua/plugin-configs/_nvim-cmp.lua;
       "lua/plugin-configs/_nvim-web-devicons.lua" = builtins.readFile ./lua/plugin-configs/_nvim-web-devicons.lua;
       "lua/plugin-configs/_oil.lua" = builtins.readFile ./lua/plugin-configs/_oil.lua;
@@ -155,6 +156,10 @@ in
       vim-tmux-navigator
       plenary-nvim
       telescope-fzf-native-nvim
+      {
+        plugin = noice-nvim;
+        config = "lua require('plugin-configs._noice')";
+      }
       {
         plugin = yanky-nvim;
         config = "lua require('plugin-configs._yanky')";
