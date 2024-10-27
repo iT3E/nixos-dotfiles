@@ -20,6 +20,12 @@
     # }
     {
       mode = "n";
+      key = "<leader> ";
+      action = ":Telescope find_files<CR>";
+      options.desc = "Find files";
+    }
+    {
+      mode = "n";
       key = "<leader>fF";
       action.__raw = ''
         function()
