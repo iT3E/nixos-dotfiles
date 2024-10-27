@@ -14,15 +14,19 @@
           extraConfig = ''
             set -g @catppuccin_flavor 'mocha'
             set -g @catppuccin_window_status_style "rounded"
-            set -g status-right-length 100
-            set -g status-left-length 100
+
+            # Clear the status bar
             set -g status-left ""
-            '';
+            set -g status-right ""
+
+            # Center the window status
+            set -g status-justify centre
+
+            # Use catppuccin's window status format
+            set -g window-status-current-format "#[fg=#{@thm_bg},bg=#{@thm_blue}] #W #[fg=#{@thm_blue},bg=#{@thm_bg}]"
+            set -g window-status-format "#[fg=#{@thm_fg},bg=#{@thm_gray}] #W #[fg=#{@thm_gray},bg=#{@thm_bg}]"
+          '';
         }
-      # {
-      #   plugin = power-theme;
-      #   extraConfig = "set -g @themepack 'powerline/default/green'";
-      # }
       resurrect
       {
         plugin = continuum;
