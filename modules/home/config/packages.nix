@@ -1,10 +1,10 @@
-{ inputs, pkgs, self, ... }: 
+{ inputs, pkgs, self, ... }:
 {
   home.packages = (with pkgs; [
     ((import ../../../packages { inherit inputs pkgs self; }).neovim)
     entr                              # perform action when file change
     fd                                # find replacement
-    file                              # Show file information 
+    file                              # Show file information
     fzf                               # fuzzy finder
     gifsicle                          # gif utility
     gimp
@@ -13,7 +13,7 @@
     jdk17                             # java
     lazygit
     libreoffice
-    cinnamon.nemo-with-extensions     # file manager
+    nemo-with-extensions              # file manager
     nitch                             # systhem fetch util
     nix-prefetch-github
     prismlauncher                     # minecraft launcher
@@ -21,7 +21,7 @@
     # tdf                               # cli pdf viewer
     todo                              # cli todo list
     yazi                              # terminal file manager
-    gnome.zenity
+    zenity
     winetricks
     wineWowPackages.wayland
 
