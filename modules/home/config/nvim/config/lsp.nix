@@ -98,7 +98,23 @@
             };
           };
 
-          nil-ls.enable = true; # nil
+          nil_ls = {
+            # FIXME: when nixd works again
+            # enable = !config.plugins.lsp.servers.nixd.enable;
+            enable = true;
+            filetypes = [ "nix" ];
+            settings = {
+              formatting = {
+                command = [ "${pkgs.nixfmt-rfc-style}" ];
+              };
+              nix = {
+                flake = {
+                  autoArchive = true;
+                };
+              };
+            };
+          };
+
           pyright.enable = true; # pyright
           lua-ls.enable = true; # lua-language-server
 
