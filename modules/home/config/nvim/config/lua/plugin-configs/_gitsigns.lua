@@ -1,12 +1,40 @@
+-- Set up highlights first
+local function setup_highlights()
+	vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#00ff00" }) -- Green for additions
+	vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#ffff00" }) -- Yellow for changes
+	vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#ff0000" }) -- Red for deletions
+
+	-- Number column highlights
+	vim.api.nvim_set_hl(0, "GitSignsAddNr", { fg = "#00ff00", bg = "NONE" })
+	vim.api.nvim_set_hl(0, "GitSignsChangeNr", { fg = "#ffff00", bg = "NONE" })
+	vim.api.nvim_set_hl(0, "GitSignsDeleteNr", { fg = "#ff0000", bg = "NONE" })
+
+	-- Line highlights
+	vim.api.nvim_set_hl(0, "GitSignsAddLn", { bg = "#1d2717" }) -- Subtle green background
+	vim.api.nvim_set_hl(0, "GitSignsChangeLn", { bg = "#1d1d17" }) -- Subtle yellow background
+	vim.api.nvim_set_hl(0, "GitSignsDeleteLn", { bg = "#1d1717" }) -- Subtle red background
+end
+
+-- Call the highlight setup
+setup_highlights()
+
+-- Gitsigns configuration
 require("gitsigns").setup({
 	signs = {
-		add = { hl = "GitSignsAdd", text = "󰐕", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-		change = { hl = "GitSignsChange", text = "󰐕", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-		delete = { hl = "GitSignsDelete", text = "_", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		changedelete = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+		add = { text = "󰐕", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+		change = { text = "󰐕", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+		delete = { text = "▁", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+		topdelete = { text = "▔", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+		changedelete = { text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
 	},
+
+	-- Sign column config
+	signcolumn = true,
+	numhl = false,
 	linehl = true,
+	word_diff = false,
+
+	-- Blame line configuration
 	current_line_blame = true,
 	current_line_blame_opts = {
 		virt_text = true,
@@ -14,10 +42,19 @@ require("gitsigns").setup({
 		delay = 500,
 		ignore_whitespace = false,
 	},
+	current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
 
+	-- Update time
+	update_debounce = 100,
+
+	-- Status formatter
+	status_formatter = nil,
+
+	-- Keymaps
 	on_attach = function(bufnr)
 		local gs = package.loaded.gitsigns
 
+		-- Helper function for mapping keys
 		local function map(mode, lhs, rhs, opts)
 			opts = opts or {}
 			opts.buffer = bufnr
@@ -33,7 +70,7 @@ require("gitsigns").setup({
 				gs.next_hunk()
 			end)
 			return "<Ignore>"
-		end, { expr = true })
+		end, { expr = true, desc = "Next git hunk" })
 
 		map("n", "<C-p>", function()
 			if vim.wo.diff then
@@ -43,7 +80,7 @@ require("gitsigns").setup({
 				gs.prev_hunk()
 			end)
 			return "<Ignore>"
-		end, { expr = true })
+		end, { expr = true, desc = "Previous git hunk" })
 
 		-- Actions
 		map({ "n", "v" }, "<leader>ga", ":Gitsigns stage_hunk<CR>", { desc = "Git stage hunk" })
@@ -51,10 +88,31 @@ require("gitsigns").setup({
 		map("n", "<leader>gaa", gs.stage_buffer, { desc = "Git stage buffer" })
 		map("n", "<leader>gu", gs.undo_stage_hunk, { desc = "Undo git stage" })
 		map("n", "<leader>gra", gs.reset_buffer, { desc = "Reset git actions in buffer" })
-		map("n", "<leader>gh", gs.preview_hunk, { desc = "Preview git actions in hunk" })
-		map("n", "<leader>gd", gs.diffthis, { desc = "Git diff this hunk" })
+		map("n", "<leader>gh", gs.preview_hunk, { desc = "Preview git hunk" })
+		map("n", "<leader>gd", gs.diffthis, { desc = "Git diff this" })
 		map("n", "<leader>gD", function()
 			gs.diffthis("~")
-		end, { desc = "Git diff this commit" })
+		end, { desc = "Git diff against last commit" })
+
+		-- Text object
+		map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "Select git hunk" })
 	end,
+
+	-- Watch git dir
+	watch_gitdir = {
+		interval = 1000,
+		follow_files = true,
+	},
+
+	-- Attach to untracked files
+	attach_to_untracked = true,
+
+	-- Preview config
+	preview_config = {
+		border = "rounded",
+		style = "minimal",
+		relative = "cursor",
+		row = 0,
+		col = 1,
+	},
 })
