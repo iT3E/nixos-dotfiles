@@ -2,6 +2,8 @@
 {
   imports = [
     ./plugin-keymaps/telescope-keymap.nix
+    ./plugin-keymaps/lsp-keymap.nix
+    ./plugin-keymaps/lazygit-keymap.nix
   ];
   config = {
     plugins.which-key = {
@@ -20,47 +22,47 @@
             }
             {
               __unkeyed-1 = "<leader>u";
-              group = "ui";  
+              group = "ui";
               desc = "ui";
             }
             {
               __unkeyed-1 = "<leader>y";
-              group = "yank";  
+              group = "yank";
               desc = "yank";
             }
             {
               __unkeyed-1 = "<leader>g";
-              group = "git";  
+              group = "git";
               desc = "git";
             }
             {
               __unkeyed-1 = "<leader>c";
-              group = "code";  
+              group = "code";
               desc = "code";
             }
             {
               __unkeyed-1 = "<leader>e";
-              group = "explorer";  
+              group = "explorer";
               desc = "explorer";
             }
             {
               __unkeyed-1 = "<leader>s";
-              group = "search";  
+              group = "search";
               desc = "search";
             }
             {
               __unkeyed-1 = "<leader>x";
-              group = "diagnostics";  
+              group = "diagnostics";
               desc = "diagnostics";
             }
             {
               __unkeyed-1 = "<leader>w";
-              group = "window";  
+              group = "window";
               desc = "window";
             }
             {
               __unkeyed-1 = "<leader>l";
-              group = "lsp";  
+              group = "lsp";
               desc = "lsp";
             }
           ];
