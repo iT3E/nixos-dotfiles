@@ -306,6 +306,142 @@
           desc = "Search Notification History";
         };
       }
+
+      # UI actions
+      {
+        mode = "n";
+        key = "<leader>ud";
+        action.__raw = ''
+          function()
+            vim.b.disable_diagnostics = not vim.b.disable_diagnostics
+            if vim.b.disable_diagnostics then
+              vim.diagnostic.disable(0)
+            else
+              vim.diagnostic.enable(0)
+            end
+            vim.notify(string.format("Buffer Diagnostics %s", bool2str(not vim.b.disable_diagnostics), "info"))
+          end
+        '';
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Buffer Diagnostics toggle";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>uD";
+        action.__raw = ''
+          function()
+            vim.g.disable_diagnostics = not vim.g.disable_diagnostics
+            if vim.g.disable_diagnostics then
+              vim.diagnostic.disable()
+            else
+              vim.diagnostic.enable()
+            end
+            vim.notify(string.format("Global Diagnostics %s", bool2str(not vim.g.disable_diagnostics), "info"))
+          end
+        '';
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Global Diagnostics toggle";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>uf";
+        action.__raw = ''
+          function()
+            vim.cmd('FormatToggle!')
+            vim.notify(string.format("Buffer Autoformatting %s", bool2str(not vim.b[0].disable_autoformat), "info"))
+          end
+        '';
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Buffer Autoformatting toggle";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>uF";
+        action.__raw = ''
+          function()
+            vim.cmd('FormatToggle')
+            vim.notify(string.format("Global Autoformatting %s", bool2str(not vim.g.disable_autoformat), "info"))
+          end
+        '';
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Global Autoformatting toggle";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>uS";
+        action.__raw = ''
+          function()
+            if vim.g.spell_enabled then vim.cmd('setlocal nospell') end
+            if not vim.g.spell_enabled then vim.cmd('setlocal spell') end
+            vim.g.spell_enabled = not vim.g.spell_enabled
+            vim.notify(string.format("Spell %s", bool2str(vim.g.spell_enabled), "info"))
+          end
+        '';
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Spell toggle";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>uw";
+        action.__raw = ''
+          function()
+            vim.wo.wrap = not vim.wo.wrap
+            vim.notify(string.format("Wrap %s", bool2str(vim.wo.wrap), "info"))
+          end
+        '';
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Word Wrap toggle";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>uh";
+        action.__raw = ''
+          function()
+            local curr_foldcolumn = vim.wo.foldcolumn
+            if curr_foldcolumn ~= "0" then vim.g.last_active_foldcolumn = curr_foldcolumn end
+            vim.wo.foldcolumn = curr_foldcolumn == "0" and (vim.g.last_active_foldcolumn or "1") or "0"
+            vim.notify(string.format("Fold Column %s", bool2str(vim.wo.foldcolumn), "info"))
+          end
+        '';
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Fold Column toggle";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>uc";
+        action.__raw = ''
+          function()
+            vim.g.cmp_enabled = not vim.g.cmp_enabled
+            vim.notify(string.format("Completions %s", bool2str(vim.g.cmp_enabled), "info"))
+          end
+        '';
+        options = {
+          noremap = true;
+          silent = true;
+          desc = "Completions toggle";
+        };
+      }
     ];
   };
 }
