@@ -48,6 +48,7 @@ in
           ]
           (#match? @_path "^extraConfigVim(Pre|Post)?$"))
       '';
+    };
 
     ## dependencies needed for plugins
     extraPackages = with pkgs; [
