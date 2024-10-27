@@ -15,6 +15,11 @@
             set -g @catppuccin_flavor 'mocha'
             set -g @catppuccin_window_status_style "rounded"
             
+            # Set rounded separators
+            set -g @catppuccin_window_left_separator ""
+            set -g @catppuccin_window_right_separator ""
+            set -g @catppuccin_window_middle_separator "█"
+            
             # Clear the status bar
             set -g status-left ""
             set -g status-right ""
