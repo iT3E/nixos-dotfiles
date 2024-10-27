@@ -1,18 +1,18 @@
 -- Set up highlights first
 local function setup_highlights()
-	vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#00ff00" }) -- Green for additions
-	vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#ffff00" }) -- Yellow for changes
-	vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#ff0000" }) -- Red for deletions
+	vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = "#a6e3a1" }) -- Catppuccin green
+	vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#f9e2af" }) -- Catppuccin yellow
+	vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = "#f38ba8" }) -- Catppuccin red
 
 	-- Number column highlights
-	vim.api.nvim_set_hl(0, "GitSignsAddNr", { fg = "#00ff00", bg = "NONE" })
-	vim.api.nvim_set_hl(0, "GitSignsChangeNr", { fg = "#ffff00", bg = "NONE" })
-	vim.api.nvim_set_hl(0, "GitSignsDeleteNr", { fg = "#ff0000", bg = "NONE" })
+	vim.api.nvim_set_hl(0, "GitSignsAddNr", { fg = "#a6e3a1", bg = "NONE" })
+	vim.api.nvim_set_hl(0, "GitSignsChangeNr", { fg = "#f9e2af", bg = "NONE" })
+	vim.api.nvim_set_hl(0, "GitSignsDeleteNr", { fg = "#f38ba8", bg = "NONE" })
 
-	-- Line highlights
-	vim.api.nvim_set_hl(0, "GitSignsAddLn", { bg = "#1d2717" }) -- Subtle green background
-	vim.api.nvim_set_hl(0, "GitSignsChangeLn", { bg = "#1d1d17" }) -- Subtle yellow background
-	vim.api.nvim_set_hl(0, "GitSignsDeleteLn", { bg = "#1d1717" }) -- Subtle red background
+	-- Line highlights (subtle backgrounds)
+	vim.api.nvim_set_hl(0, "GitSignsAddLn", { bg = "#2d3235" }) -- Darker green tint
+	vim.api.nvim_set_hl(0, "GitSignsChangeLn", { bg = "#2d2e33" }) -- Darker yellow tint
+	vim.api.nvim_set_hl(0, "GitSignsDeleteLn", { bg = "#2d2a32" }) -- Darker red tint
 end
 
 -- Call the highlight setup
