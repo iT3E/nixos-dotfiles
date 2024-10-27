@@ -21,11 +21,11 @@ setup_highlights()
 -- Gitsigns configuration
 require("gitsigns").setup({
 	signs = {
-		add = { text = "󰐕", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-		change = { text = "󰐕", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-		delete = { text = "▁", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		topdelete = { text = "▔", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		changedelete = { text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+		add = { text = "󰐕" },
+		change = { text = "󰐕" },
+		delete = { text = "▁" },
+		topdelete = { text = "▔" },
+		changedelete = { text = "~" },
 	},
 
 	-- Sign column config
