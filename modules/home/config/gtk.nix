@@ -3,7 +3,12 @@
   fonts.fontconfig.enable = true;
   home.packages = [
     pkgs.nerdfonts
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "Noto" ]; })
+    (pkgs.nerdfonts.override {
+      fonts = [
+        "Ubuntu"
+        # "Noto"
+      ];
+    })
     pkgs.twemoji-color-font
     pkgs.noto-fonts-emoji
   ];
@@ -11,7 +16,7 @@
   gtk = {
     enable = true;
     font = {
-      name = "JetBrainsMono Nerd Font";
+      name = "Ubuntu Nerd Font";
       size = 11;
     };
     iconTheme = {
@@ -31,7 +36,7 @@
       size = 22;
     };
   };
-  
+
   home.pointerCursor = {
     name = "Nordzy-cursors";
     package = pkgs.nordzy-cursor-theme;
