@@ -321,7 +321,7 @@
             else
               vim.diagnostic.enable(0)
             end
-            vim.notify(string.format("Buffer Diagnostics %s", bool2str(not vim.b.disable_diagnostics), "info"))
+            vim.notify(string.format("Buffer Diagnostics %s", vim.b.disable_diagnostics and "disabled" or "enabled"), "info")
           end
         '';
         options = {
@@ -341,7 +341,7 @@
             else
               vim.diagnostic.enable()
             end
-            vim.notify(string.format("Global Diagnostics %s", bool2str(not vim.g.disable_diagnostics), "info"))
+            vim.notify(string.format("Global Diagnostics %s", vim.g.disable_diagnostics and "disabled" or "enabled"), "info")
           end
         '';
         options = {
