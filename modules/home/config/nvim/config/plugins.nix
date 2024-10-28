@@ -148,6 +148,7 @@ in
       }
       b64-nvim
       # Other
+      conform-nvim
       lazygit-nvim
       presence-nvim
       bufferline-nvim

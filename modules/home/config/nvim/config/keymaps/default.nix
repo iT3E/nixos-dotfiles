@@ -370,8 +370,8 @@
         key = "<leader>uF";
         action.__raw = ''
           function()
-            vim.cmd('FormatToggle')
-            vim.notify(string.format("Global Autoformatting %s", bool2str(not vim.g.disable_autoformat), "info"))
+            vim.g.disable_autoformat = not vim.g.disable_autoformat
+            vim.notify(string.format("Global Autoformatting %s", vim.g.disable_autoformat and "disabled" or "enabled"), "info")
           end
         '';
         options = {
