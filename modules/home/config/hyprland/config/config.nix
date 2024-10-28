@@ -1,8 +1,8 @@
-{ host, ... }: 
+{ host, ... }:
 {
   wayland.windowManager.hyprland = {
     settings = {
-      
+
       # autostart
       exec-once = [
         "systemctl --user import-environment &"
@@ -21,7 +21,7 @@
 
       input = {
         kb_layout = "us";
-        kb_options ="grp:alt_caps_toggle"; 
+        kb_options = "grp:alt_caps_toggle";
         numlock_by_default = true;
         follow_mouse = 1;
         sensitivity = 0;
@@ -90,7 +90,7 @@
           # size = 4;
           # passes = 2;
           brightness = 1;
-          contrast = 1.400;
+          contrast = 1.4;
           ignore_opacity = true;
           noise = 0;
           new_optimizations = true;
@@ -133,135 +133,134 @@
           "workspaces, 1, 4, easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
         ];
       };
-        bind = [
-          # assign apps
-          # "$term = kitty"
-          # "$editor = nvim"
-          # "$file = dolphin"
-          # "$browser = firefox"
+      bind = [
+        # assign apps
+        # "$term = kitty"
+        # "$editor = nvim"
+        # "$file = dolphin"
+        # "$browser = firefox"
 
-          # Window/Session actions
-          "$mainMod, X, killactive," # killactive, kill the window on focus
-          "ALT, F4, killactive," # killactive, kill the window on focus
-          "$mainMod, delete, exit," # kill hyperland session
-          "$mainMod, W, togglefloating," # toggle the window on focus to float
-          "$mainMod, G, togglegroup," # toggle the window on focus to float
-          "ALT, return, fullscreen," # toggle the window on focus to fullscreen
-          "$mainMod, L, exec, swaylock" # lock screen
-          "$mainMod, backspace, exec, $scrPath/logoutlaunch.sh 1" # logout menu
-          "$CONTROL, ESCAPE, exec, killall waybar || waybar" # toggle waybar
+        # Window/Session actions
+        "$mainMod, X, killactive," # killactive, kill the window on focus
+        "ALT, F4, killactive," # killactive, kill the window on focus
+        "$mainMod, delete, exit," # kill hyperland session
+        "$mainMod, W, togglefloating," # toggle the window on focus to float
+        "$mainMod, G, togglegroup," # toggle the window on focus to float
+        "ALT, return, fullscreen," # toggle the window on focus to fullscreen
+        "$mainMod, L, exec, swaylock" # lock screen
+        "$mainMod, backspace, exec, $scrPath/logoutlaunch.sh 1" # logout menu
+        "$CONTROL, ESCAPE, exec, killall waybar || waybar" # toggle waybar
 
-          # Application shortcuts
-          "$mainMod, T, exec, kitty" # open terminal
-          "$mainMod, F, exec, nemo" # open file manager
-          "$mainMod, E, exec, kitty -o background_opacity=1 nvim" # open nvim
-          "$mainMod, B, exec, hyprctl dispatch exec 'floorp'" # open browser
-          "$CONTROL SHIFT, ESCAPE, exec, $scrPath/sysmonlaunch.sh" # open htop/btop if installed or default to top (system monitor)
-          "$mainMod, A, exec, fuzzel" # launch desktop applications
+        # Application shortcuts
+        "$mainMod, T, exec, kitty" # open terminal
+        "$mainMod, F, exec, nemo" # open file manager
+        "$mainMod, E, exec, kitty -o background_opacity=1 nvim" # open nvim
+        "$mainMod, B, exec, hyprctl dispatch exec 'floorp'" # open browser
+        "$CONTROL SHIFT, ESCAPE, exec, $scrPath/sysmonlaunch.sh" # open htop/btop if installed or default to top (system monitor)
+        "$mainMod, A, exec, fuzzel" # launch desktop applications
 
-          # Audio control
-          ",XF86AudioRaiseVolume,exec, pamixer -i 2"
-          ",XF86AudioLowerVolume,exec, pamixer -d 2"
-          ",XF86AudioMute,exec, pamixer -t"
-          ",XF86AudioPlay,exec, playerctl play-pause"
-          ",XF86AudioNext,exec, playerctl next"
-          ",XF86AudioPrev,exec, playerctl previous"
-          ",XF86AudioStop, exec, playerctl stop"
+        # Audio control
+        ",XF86AudioRaiseVolume,exec, pamixer -i 2"
+        ",XF86AudioLowerVolume,exec, pamixer -d 2"
+        ",XF86AudioMute,exec, pamixer -t"
+        ",XF86AudioPlay,exec, playerctl play-pause"
+        ",XF86AudioNext,exec, playerctl next"
+        ",XF86AudioPrev,exec, playerctl previous"
+        ",XF86AudioStop, exec, playerctl stop"
 
-          # Brightness control
-          ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
-          ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-          "$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
-          "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
+        # Brightness control
+        ",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+        "$mainMod, XF86MonBrightnessUp, exec, brightnessctl set 100%+"
+        "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
 
-          # Screenshot/Screencapture
-          "$mainMod, Print, exec, grimblast --notify --cursor --freeze save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
-          ",Print, exec, grimblast --notify --cursor --freeze copy area"
+        # Screenshot/Screencapture
+        "$mainMod, Print, exec, grimblast --notify --cursor --freeze save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
+        ",Print, exec, grimblast --notify --cursor --freeze copy area"
 
-          # Move focus with mainMod + arrow keys
-          "ALT, left, movefocus, l"
-          "ALT, right, movefocus, r"
-          "ALT, up, movefocus, u"
-          "ALT, down, movefocus, d"
-          "ALT, Tab, movefocus, d"
+        # Move focus with mainMod + arrow keys
+        "ALT, left, movefocus, l"
+        "ALT, right, movefocus, r"
+        "ALT, up, movefocus, u"
+        "ALT, down, movefocus, d"
+        "ALT, Tab, movefocus, d"
 
-          # Switch workspaces with mainMod + [0-9]
-          "$mainMod, 1, workspace, 1"
-          "$mainMod, 2, workspace, 2"
-          "$mainMod, 3, workspace, 3"
-          "$mainMod, 4, workspace, 4"
-          "$mainMod, 5, workspace, 5"
-          "$mainMod, 6, workspace, 6"
-          "$mainMod, 7, workspace, 7"
-          "$mainMod, 8, workspace, 8"
-          "$mainMod, 9, workspace, 9"
-          "$mainMod, 0, workspace, 10"
+        # Switch workspaces with mainMod + [0-9]
+        "$mainMod, 1, workspace, 1"
+        "$mainMod, 2, workspace, 2"
+        "$mainMod, 3, workspace, 3"
+        "$mainMod, 4, workspace, 4"
+        "$mainMod, 5, workspace, 5"
+        "$mainMod, 6, workspace, 6"
+        "$mainMod, 7, workspace, 7"
+        "$mainMod, 8, workspace, 8"
+        "$mainMod, 9, workspace, 9"
+        "$mainMod, 0, workspace, 10"
 
-          # Switch workspaces relative to the active workspace with mainMod + CTRL + [←→]
-          "ALT SHIFT, right, workspace, r+1"
-          "ALT SHIFT, left, workspace, r-1"
+        # Switch workspaces relative to the active workspace with mainMod + CTRL + [←→]
+        "ALT SHIFT, right, workspace, r+1"
+        "ALT SHIFT, left, workspace, r-1"
 
-          # move to the first empty workspace instantly with mainMod + CTRL + [↓]
-          "ALT CTRL, down, workspace, empty"
+        # move to the first empty workspace instantly with mainMod + CTRL + [↓]
+        "ALT CTRL, down, workspace, empty"
 
-          # Resize windows
-          "SHIFT, right, resizeactive, 30 0"
-          "SHIFT, left, resizeactive, -30 0"
-          "SHIFT, up, resizeactive, 0 -30"
-          "SHIFT, down, resizeactive, 0 30"
+        # Resize windows
+        "SHIFT, right, resizeactive, 30 0"
+        "SHIFT, left, resizeactive, -30 0"
+        "SHIFT, up, resizeactive, 0 -30"
+        "SHIFT, down, resizeactive, 0 30"
 
-          # Move active window to a workspace with mainMod + SHIFT + [0-9]
-          "$mainMod SHIFT, 1, movetoworkspace, 1"
-          "$mainMod SHIFT, 2, movetoworkspace, 2"
-          "$mainMod SHIFT, 3, movetoworkspace, 3"
-          "$mainMod SHIFT, 4, movetoworkspace, 4"
-          "$mainMod SHIFT, 5, movetoworkspace, 5"
-          "$mainMod SHIFT, 6, movetoworkspace, 6"
-          "$mainMod SHIFT, 7, movetoworkspace, 7"
-          "$mainMod SHIFT, 8, movetoworkspace, 8"
-          "$mainMod SHIFT, 9, movetoworkspace, 9"
-          "$mainMod SHIFT, 0, movetoworkspace, 10"
+        # Move active window to a workspace with mainMod + SHIFT + [0-9]
+        "$mainMod SHIFT, 1, movetoworkspace, 1"
+        "$mainMod SHIFT, 2, movetoworkspace, 2"
+        "$mainMod SHIFT, 3, movetoworkspace, 3"
+        "$mainMod SHIFT, 4, movetoworkspace, 4"
+        "$mainMod SHIFT, 5, movetoworkspace, 5"
+        "$mainMod SHIFT, 6, movetoworkspace, 6"
+        "$mainMod SHIFT, 7, movetoworkspace, 7"
+        "$mainMod SHIFT, 8, movetoworkspace, 8"
+        "$mainMod SHIFT, 9, movetoworkspace, 9"
+        "$mainMod SHIFT, 0, movetoworkspace, 10"
 
-          # Move active window to a relative workspace with mainMod + CTRL + ALT + [←→]
-          "$mainMod CTRL ALT, right, movetoworkspace, r+1"
-          "$mainMod CTRL ALT, left, movetoworkspace, r-1"
+        # Move active window to a relative workspace with mainMod + CTRL + ALT + [←→]
+        "$mainMod CTRL ALT, right, movetoworkspace, r+1"
+        "$mainMod CTRL ALT, left, movetoworkspace, r-1"
 
-          # Move active window around current workspace with mainMod + SHIFT + CTRL [←→↑↓]
-          "SHIFT $CONTROL, left, movewindow, l"
-          "SHIFT $CONTROL, right, movewindow, r"
-          "SHIFT $CONTROL, up, movewindow, u"
-          "SHIFT $CONTROL, down, movewindow, d"
+        # Move active window around current workspace with mainMod + SHIFT + CTRL [←→↑↓]
+        "SHIFT $CONTROL, left, movewindow, l"
+        "SHIFT $CONTROL, right, movewindow, r"
+        "SHIFT $CONTROL, up, movewindow, u"
+        "SHIFT $CONTROL, down, movewindow, d"
 
-          # Scroll through existing workspaces with mainMod + scroll
-          "$mainMod, mouse_down, workspace, e+1"
-          "$mainMod, mouse_up, workspace, e-1"
+        # Scroll through existing workspaces with mainMod + scroll
+        "$mainMod, mouse_down, workspace, e+1"
+        "$mainMod, mouse_up, workspace, e-1"
 
+        # Special workspaces (scratchpad)
+        "$mainMod ALT, S, movetoworkspacesilent, special"
+        "$mainMod, S, togglespecialworkspace,"
 
-          # Special workspaces (scratchpad)
-          "$mainMod ALT, S, movetoworkspacesilent, special"
-          "$mainMod, S, togglespecialworkspace,"
+        # Toggle Layout
+        "$mainMod, J, togglesplit," # dwindle
 
-          # Toggle Layout
-          "$mainMod, J, togglesplit," # dwindle
+        # Move window silently to workspace Super + Alt + [0-9]
+        "$mainMod ALT, 1, movetoworkspacesilent, 1"
+        "$mainMod ALT, 2, movetoworkspacesilent, 2"
+        "$mainMod ALT, 3, movetoworkspacesilent, 3"
+        "$mainMod ALT, 4, movetoworkspacesilent, 4"
+        "$mainMod ALT, 5, movetoworkspacesilent, 5"
+        "$mainMod ALT, 6, movetoworkspacesilent, 6"
+        "$mainMod ALT, 7, movetoworkspacesilent, 7"
+        "$mainMod ALT, 8, movetoworkspacesilent, 8"
+        "$mainMod ALT, 9, movetoworkspacesilent, 9"
+        "$mainMod ALT, 0, movetoworkspacesilent, 10"
 
-          # Move window silently to workspace Super + Alt + [0-9]
-          "$mainMod ALT, 1, movetoworkspacesilent, 1"
-          "$mainMod ALT, 2, movetoworkspacesilent, 2"
-          "$mainMod ALT, 3, movetoworkspacesilent, 3"
-          "$mainMod ALT, 4, movetoworkspacesilent, 4"
-          "$mainMod ALT, 5, movetoworkspacesilent, 5"
-          "$mainMod ALT, 6, movetoworkspacesilent, 6"
-          "$mainMod ALT, 7, movetoworkspacesilent, 7"
-          "$mainMod ALT, 8, movetoworkspacesilent, 8"
-          "$mainMod ALT, 9, movetoworkspacesilent, 9"
-          "$mainMod ALT, 0, movetoworkspacesilent, 10"
+        # Trigger when the switch is turning off
+        ", switch:on:Lid Switch, exec, swaylock && systemctl suspend"
 
-          # Trigger when the switch is turning off
-          ", switch:on:Lid Switch, exec, swaylock && systemctl suspend"
-
-          # clipboard manager
-          "$mainMod, V, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
-        ];
+        # clipboard manager
+        "$mainMod, V, exec, cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
+      ];
 
       ### original binds
       #
@@ -435,7 +434,8 @@
     };
 
     extraConfig = "
-      monitor=,preferred,auto,auto
+      # monitor=,preferred,auto,auto
+      monitor = eDP-1, 1920x1200, auto, 1.25
 
       xwayland {
         force_zero_scaling = true
