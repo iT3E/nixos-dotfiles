@@ -1,14 +1,15 @@
 { ... }:
-let custom = {
+let
+  custom = {
     font = "JetBrainsMono Nerd Font";
     font_size = "12px";
     font_weight = "bold";
     text_color = "#cdd6f4";
-    secondary_accent= "89b4fa";
+    secondary_accent = "89b4fa";
     tertiary_accent = "f5f5f5";
     background = "11111B";
     opacity = "0.98";
-};
+  };
 in
 {
   programs.waybar.style = ''
@@ -45,7 +46,7 @@ in
         color: #b4befe;
     }
 
-    #tray, #pulseaudio, #network, #cpu, #memory, #clock, #battery, #custom-notification {
+    #tray, #pulseaudio,  #cpu, #memory, #clock, #battery, #custom-notification {
         font-size: ${custom.font_size};
         color: ${custom.text_color};
     }
@@ -68,11 +69,6 @@ in
         padding-left: 9px;
         padding-right: 9px;
     }
-    #network {
-        padding-left: 9px;
-        padding-right: 30px;
-    }
-
     custom-notification {
         padding-left: 20px;
         padding-right: 20px;
