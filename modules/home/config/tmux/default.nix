@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   programs.tmux = {
@@ -10,31 +15,31 @@
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       {
-          plugin = catppuccin;
-          extraConfig = ''
-            set -g @catppuccin_flavor 'mocha'
-            set -g @catppuccin_window_status_style "rounded"
+        plugin = catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_flavor 'mocha'
+          set -g @catppuccin_window_status_style "rounded"
 
-            # Clear the status bar
-            set -g status-left ""
-            set -g status-right ""
+          # Clear the status bar
+          set -g status-left ""
+          set -g status-right ""
 
-            # Center the window status
-            set -g status-justify centre
+          # Center the window status
+          set -g status-justify centre
 
-            # Set rounded separators
-            set -g @catppuccin_window_left_separator "◖"
-            set -g @catppuccin_window_right_separator "◗"
+          # Set rounded separators
+          set -g @catppuccin_window_left_separator "◖"
+          set -g @catppuccin_window_right_separator "◗"
 
-            # Customize window appearance
-            set -g @catppuccin_window_default_text "#W"
-            set -g @catppuccin_window_current_text "#W"
+          # Customize window appearance
+          set -g @catppuccin_window_default_text "#W"
+          set -g @catppuccin_window_current_text "#W"
 
-            # Ensure there's enough space
-            set -g status-left-length 100
-            set -g status-right-length 100
-          '';
-        }
+          # Ensure there's enough space
+          set -g status-left-length 100
+          set -g status-right-length 100
+        '';
+      }
       {
         plugin = resurrect;
         extraConfig = ''
@@ -51,7 +56,6 @@
           set -g @continuum-restore 'on'
           set -g @continuum-save-interval '1'
           set -g @continuum-boot 'on'         # Enable automatic tmux start
-          set -g status-right 'Continuum: #{continuum_status}'  # Optional: shows status
         '';
       }
     ];
