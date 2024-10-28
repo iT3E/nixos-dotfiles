@@ -1,4 +1,3 @@
-{ config, pkgs, lib, ... }:
 {
   imports = [
     ./plugin-keymaps/telescope-keymap.nix
@@ -7,69 +6,69 @@
   ];
   config = {
     plugins.which-key = {
-        enable = true;
-        settings = {
-          spec = [
-            {
-              __unkeyed-1 = "<leader>b";
-              group = "buffers";
-              desc = "buffers";
-            }
+      enable = true;
+      settings = {
+        spec = [
+          {
+            __unkeyed-1 = "<leader>b";
+            group = "buffers";
+            desc = "buffers";
+          }
 
-            {
-              __unkeyed-1 = "<leader>f";
-              group = "file/find";
-            }
-            {
-              __unkeyed-1 = "<leader>u";
-              group = "ui";
-              desc = "ui";
-            }
-            {
-              __unkeyed-1 = "<leader>y";
-              group = "yank";
-              desc = "yank";
-            }
-            {
-              __unkeyed-1 = "<leader>g";
-              group = "git";
-              desc = "git";
-            }
-            {
-              __unkeyed-1 = "<leader>c";
-              group = "code";
-              desc = "code";
-            }
-            {
-              __unkeyed-1 = "<leader>e";
-              group = "explorer";
-              desc = "explorer";
-            }
-            {
-              __unkeyed-1 = "<leader>s";
-              group = "search";
-              desc = "search";
-            }
-            {
-              __unkeyed-1 = "<leader>x";
-              group = "diagnostics";
-              desc = "diagnostics";
-            }
-            {
-              __unkeyed-1 = "<leader>w";
-              group = "window";
-              desc = "window";
-            }
-            {
-              __unkeyed-1 = "<leader>l";
-              group = "lsp";
-              desc = "lsp";
-            }
-          ];
-          # Using telescope for spelling
-          plugins.spelling.enabled = false;
-        };
+          {
+            __unkeyed-1 = "<leader>f";
+            group = "file/find";
+          }
+          {
+            __unkeyed-1 = "<leader>u";
+            group = "ui";
+            desc = "ui";
+          }
+          {
+            __unkeyed-1 = "<leader>y";
+            group = "yank";
+            desc = "yank";
+          }
+          {
+            __unkeyed-1 = "<leader>g";
+            group = "git";
+            desc = "git";
+          }
+          {
+            __unkeyed-1 = "<leader>c";
+            group = "code";
+            desc = "code";
+          }
+          {
+            __unkeyed-1 = "<leader>e";
+            group = "explorer";
+            desc = "explorer";
+          }
+          {
+            __unkeyed-1 = "<leader>s";
+            group = "search";
+            desc = "search";
+          }
+          {
+            __unkeyed-1 = "<leader>x";
+            group = "diagnostics";
+            desc = "diagnostics";
+          }
+          {
+            __unkeyed-1 = "<leader>w";
+            group = "window";
+            desc = "window";
+          }
+          {
+            __unkeyed-1 = "<leader>l";
+            group = "lsp";
+            desc = "lsp";
+          }
+        ];
+        # Using telescope for spelling
+        plugins.spelling.enabled = false;
       };
+    };
 
     extraConfigLua = ''
       -- Space is <Leader>
@@ -93,7 +92,8 @@
       }
       {
         mode = "n";
-        key = "<Leader>w|"; action = ":vnew<CR>";
+        key = "<Leader>w|";
+        action = ":vnew<CR>";
         options.desc = "Open new vertical split";
       }
 
