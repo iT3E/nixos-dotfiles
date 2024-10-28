@@ -9,7 +9,11 @@
     with pkgs;
     [
       ((import ../../../packages { inherit inputs pkgs self; }).neovim)
-      citrix_workspace
+      (citrix_workspace.overrideAttrs (oldAttrs: {
+        buildInputs = oldAttrs.buildInputs ++ [ libogg ];
+        runtimeDependencies = oldAttrs.runtimeDependencies ++ [ libogg ];
+        autoPatchelfIgnoreMissingDeps = [ "libogg.so.0" ];
+      }))
       entr # perform action when file change
       fd # find replacement
       file # Show file information
