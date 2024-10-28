@@ -4,11 +4,11 @@
     enable = true;
     settings = {
       main = {
-        font = "JetBrainsMono Nerd Font:weight=bold:size=14";
+        font = "Ubuntu Nerd Font:weight=bold:size=14";
         line-height = 25;
         fields = "name,generic,comment,categories,filename,keywords";
         terminal = "kitty";
-        prompt = "' ➜  '" ;
+        prompt = "' ➜  '";
         icon-theme = "Papirus-Dark";
         layer = "top";
         lines = 10;
