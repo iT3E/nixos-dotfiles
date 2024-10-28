@@ -388,7 +388,7 @@
             if vim.g.spell_enabled then vim.cmd('setlocal nospell') end
             if not vim.g.spell_enabled then vim.cmd('setlocal spell') end
             vim.g.spell_enabled = not vim.g.spell_enabled
-            vim.notify(string.format("Spell %s", bool2str(vim.g.spell_enabled), "info"))
+            vim.notify(string.format("Spell %s", vim.g.spell_enabled and "enabled" or "disabled"), "info")
           end
         '';
         options = {
@@ -403,7 +403,7 @@
         action.__raw = ''
           function()
             vim.wo.wrap = not vim.wo.wrap
-            vim.notify(string.format("Wrap %s", bool2str(vim.wo.wrap), "info"))
+            vim.notify(string.format("Wrap %s", vim.wo.wrap and "enabled" or "disabled"), "info")
           end
         '';
         options = {
@@ -420,7 +420,7 @@
             local curr_foldcolumn = vim.wo.foldcolumn
             if curr_foldcolumn ~= "0" then vim.g.last_active_foldcolumn = curr_foldcolumn end
             vim.wo.foldcolumn = curr_foldcolumn == "0" and (vim.g.last_active_foldcolumn or "1") or "0"
-            vim.notify(string.format("Fold Column %s", bool2str(vim.wo.foldcolumn), "info"))
+            vim.notify(string.format("Fold Column %s", vim.wo.foldcolumn ~= "0" and "enabled" or "disabled"), "info")
           end
         '';
         options = {
@@ -435,7 +435,7 @@
         action.__raw = ''
           function()
             vim.g.cmp_enabled = not vim.g.cmp_enabled
-            vim.notify(string.format("Completions %s", bool2str(vim.g.cmp_enabled), "info"))
+            vim.notify(string.format("Completions %s", vim.g.cmp_enabled and "enabled" or "disabled"), "info")
           end
         '';
         options = {
