@@ -8,6 +8,7 @@
     ./config/cava.nix
     ./config/discord.nix
     ./config/floorp
+    ./config/firefox
     ./config/fuzzel.nix
     ./config/gaming.nix
     ./config/git.nix
