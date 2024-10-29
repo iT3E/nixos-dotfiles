@@ -122,7 +122,10 @@
         };
         laptop = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./hosts/laptop ];
+          modules = [ 
+          ./hosts/laptop 
+          { nixpkgs.overlays = [ inputs.nur.overlay ]; }
+          ];
           specialArgs = {
             host = "laptop";
             inherit self inputs username;
