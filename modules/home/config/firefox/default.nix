@@ -37,7 +37,6 @@
     };
 
     profiles = {
-    profiles = {
       "dev-edition-default" = {
         id = 0;
         isDefault = true;  
