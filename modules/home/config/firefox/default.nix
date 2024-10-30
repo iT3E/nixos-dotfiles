@@ -37,7 +37,11 @@
     };
 
     profiles = {
-      default = {
+    profiles = {
+      "dev-edition-default" = {
+        id = 0;
+        isDefault = true;  
+
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           angular-devtools
           auto-tab-discard
