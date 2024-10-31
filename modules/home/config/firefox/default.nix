@@ -160,9 +160,9 @@
           "media.eme.enabled" = true;
           "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-          "font.name.monospace.x-western" = "MonaspiceKr Nerd Font";
-          "font.name.sans-serif.x-western" = "MonaspiceNe Nerd Font";
-          "font.name.serif.x-western" = "MonaspiceNe Nerd Font";
+          "font.name.monospace.x-western" = "Ubuntu Nerd Font";
+          "font.name.sans-serif.x-western" = "Ubuntu Nerd Font";
+          "font.name.serif.x-western" = "Ubuntu Nerd Font";
           "signon.autofillForms" = false;
           "signon.firefoxRelay.feature" = "disabled";
           "signon.generation.enabled" = false;
