@@ -16,7 +16,7 @@
       ## Enable firenvim
       {
         event = "UIEnter";
-        group = "enablefirenvim"
+        group = "enablefirenvim";
         callback = {
           __raw = ''
             function(event)
