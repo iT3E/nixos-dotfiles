@@ -3,6 +3,7 @@
     autoGroups = {
       disabledeindenthastag.clear = true;
       disableautocomment.clear = true;
+      enablefirenvim.clear = true;
       ftdetection.clear = true;
       ftconfiguration.clear = true;
       closewithq.clear = true;
@@ -12,6 +13,25 @@
     };
 
     autoCmd = [
+      ## Enable firenvim
+      {
+        event = "UIEnter";
+        group = "enablefirenvim"
+        callback = {
+          __raw = ''
+            function(event)
+                local client = vim.api.nvim_get_chan_info(vim.v.event.chan).client
+                if client ~= nil and client.name == "Firenvim" then
+                    vim.o.laststatus = 0
+                    vim.o.showtabline = 0
+                    require('lualine').hide()
+                    local ok, _ = pcall(vim.cmd, "colorscheme sorbet")
+                end
+            end
+          '';
+        };
+      }
+
       ## Disable removing indentation on files when first letter is # except some filetypes
       {
         event = [ "FileType" ];

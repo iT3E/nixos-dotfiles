@@ -16,6 +16,7 @@ in
     extraFiles = {
       "lua/plugin-configs/_alpha.lua".text = builtins.readFile ./lua/plugin-configs/_alpha.lua;
       "lua/plugin-configs/_autopairs.lua".text = builtins.readFile ./lua/plugin-configs/_autopairs.lua;
+      "lua/plugin-configs/_firenvim.lua".text = builtins.readFile ./lua/plugin-configs/_firenvim.lua;
       "lua/plugin-configs/_fzf-lua.lua".text = builtins.readFile ./lua/plugin-configs/_fzf-lua.lua;
       "lua/plugin-configs/_gitsigns.lua".text = builtins.readFile ./lua/plugin-configs/_gitsigns.lua;
       "lua/plugin-configs/_lualine.lua".text = builtins.readFile ./lua/plugin-configs/_lualine.lua;
@@ -148,6 +149,10 @@ in
       }
       b64-nvim
       # Other
+      {
+        plugin = firenvim;
+        config = "lua require('plugin-configs._firenvim')";
+      }
       conform-nvim
       lazygit-nvim
       presence-nvim
