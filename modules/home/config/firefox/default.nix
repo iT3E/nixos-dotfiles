@@ -61,6 +61,7 @@
           stylus
           ublock-origin
           user-agent-string-switcher
+          vimium
         ];
 
         search = {
