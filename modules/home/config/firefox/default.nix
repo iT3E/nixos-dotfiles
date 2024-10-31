@@ -53,6 +53,7 @@
           darkreader
           firefox-color
           firenvim
+          old-reddit-redirect
           onepassword-password-manager
           react-devtools
           reduxdevtools
