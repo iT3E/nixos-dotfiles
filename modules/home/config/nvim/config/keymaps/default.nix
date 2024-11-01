@@ -83,6 +83,14 @@
       })
     '';
     keymaps = [
+      # Remove highlighting on <ESC>
+      {
+        mode = "n";
+        key = "<Esc>";
+        action = ":noh<CR>";
+        options.desc = "Remove highlighting";
+        options.silent = true;
+      }
       ## Open new split
       {
         mode = "n";
