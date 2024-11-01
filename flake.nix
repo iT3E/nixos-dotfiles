@@ -4,7 +4,7 @@
   inputs = {
     # nixpkgs and unstable
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    # nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/24.05";
 
     # flake-parts - very lightweight flake framework
     # https://flake.parts
@@ -114,7 +114,10 @@
 
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ ./hosts/desktop ];
+          modules = [
+            ./hosts/desktop
+            { nixpkgs.overlays = [ inputs.nur.overlay ]; }
+          ];
           specialArgs = {
             host = "desktop";
             inherit self inputs username;
@@ -122,9 +125,9 @@
         };
         laptop = nixpkgs.lib.nixosSystem {
           inherit system;
-          modules = [ 
-          ./hosts/laptop 
-          { nixpkgs.overlays = [ inputs.nur.overlay ]; }
+          modules = [
+            ./hosts/laptop
+            { nixpkgs.overlays = [ inputs.nur.overlay ]; }
           ];
           specialArgs = {
             host = "laptop";
