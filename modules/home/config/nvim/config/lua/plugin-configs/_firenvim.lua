@@ -1,4 +1,4 @@
-require("firenvim").setup({
+vim.g.firenvim_config = {
   localSettings = {
     [".*"] = {
       cmdline = "neovim",
@@ -8,4 +8,4 @@ require("firenvim").setup({
       takeover = "never"
     }
   }
-})
+}
