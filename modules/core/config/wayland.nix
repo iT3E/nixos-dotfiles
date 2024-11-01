@@ -1,16 +1,19 @@
 { inputs, pkgs, ... }:
+let
+  stable = inputs.nixpkgs-stable.legacyPackages.${pkgs.system};
+in
 {
   programs.hyprland = {
     enable = true;
-    package = inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.hyprland;
+    package = stable.hyprland;
   };
   xdg.portal = {
     enable = true;
     wlr.enable = true;
     xdgOpenUsePortal = true;
     extraPortals = [
-      inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.xdg-desktop-portal-hyprland
-      inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.xdg-desktop-portal-gtk
+      stable.xdg-desktop-portal-hyprland
+      stable.xdg-desktop-portal-gtk
     ];
   };
 
