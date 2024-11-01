@@ -1,6 +1,9 @@
 { inputs, pkgs, ... }:
 {
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.hyprland;
+  };
   xdg.portal = {
     enable = true;
     wlr.enable = true;
