@@ -9,8 +9,8 @@
     wlr.enable = true;
     xdgOpenUsePortal = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
+      inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.xdg-desktop-portal-hyprland
+      inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.xdg-desktop-portal-gtk
     ];
   };
 
