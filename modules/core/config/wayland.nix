@@ -7,9 +7,6 @@ in
     enable = true;
     package = stable.hyprland;
   };
-  services.xdg-desktop-portal.enable = false;
-  services.xdg-desktop-portal-hyprland.enable = false;
-  services.xdg-desktop-portal-gtk.enable = false;
   xdg.portal = {
     enable = true;
     wlr.enable = true;
