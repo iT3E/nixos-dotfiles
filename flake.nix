@@ -111,29 +111,44 @@
       legacyPackages.${system} = import ./packages { inherit inputs self pkgs; };
 
       nixosConfigurations = {
-
         desktop = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             ./hosts/desktop
             { nixpkgs.overlays = [ inputs.nur.overlay ]; }
+            # Add the Hyprland cachix settings
+            {
+              nix.settings = {
+                substituters = ["https://hyprland.cachix.org"];
+                trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+              };
+            }
           ];
           specialArgs = {
             host = "desktop";
             inherit self inputs username;
           };
         };
+        
         laptop = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
             ./hosts/laptop
             { nixpkgs.overlays = [ inputs.nur.overlay ]; }
+            # Add the Hyprland cachix settings
+            {
+              nix.settings = {
+                substituters = ["https://hyprland.cachix.org"];
+                trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+              };
+            }
           ];
           specialArgs = {
             host = "laptop";
             inherit self inputs username;
           };
         };
+
         vm = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [ ./hosts/vm ];
