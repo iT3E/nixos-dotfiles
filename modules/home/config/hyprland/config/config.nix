@@ -1,4 +1,4 @@
-{ host, ... }:
+{ host, lib, ... }:
 {
   wayland.windowManager.hyprland = {
     settings = {
@@ -31,7 +31,10 @@
           clickfinger_behavior = true;
           tap-to-click = false;
         };
-        force_no_accel = if (host == "desktop") then 1 else 0;
+        force_no_accel = lib.mkMerge [
+          (lib.mkIf (host == "desktop") 1)
+          (lib.mkIf (host != "desktop") 0)
+        ];
       };
 
       gestures = {
@@ -433,13 +436,27 @@
 
     };
 
-    extraConfig = "
-      # monitor=,preferred,auto,auto
-      monitor = eDP-1, 1920x1200, auto, 1.25
+    extraConfig = lib.mkMerge [
+      (lib.mkIf (host == "laptop") {
+        text = ''
+          # monitor=,preferred,auto,auto
+          monitor = eDP-1, 1920x1200, auto, 1.25
 
-      xwayland {
-        force_zero_scaling = true
-      }
-    ";
+          xwayland {
+            force_zero_scaling = true
+          }
+        '';
+      })
+      (lib.mkIf (host == "desktop") {
+        text = ''
+          # monitor=,preferred,auto,auto
+          monitor = DP-1, preferred, auto, auto
+
+          xwayland {
+            force_zero_scaling = true
+          }
+        '';
+      })
+    ];
   };
 }
