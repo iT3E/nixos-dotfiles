@@ -87,9 +87,12 @@
       {
         mode = "n";
         key = "<Esc>";
-        action = ":noh<CR>";
-        options.desc = "Remove highlighting";
-        options.silent = true;
+        action = ":nohlsearch<CR>";
+        options = {
+          desc = "Remove highlighting";
+          silent = true;
+          noremap = true;
+        };
       }
       ## Open new split
       {
@@ -103,32 +106,6 @@
         key = "<Leader>w|";
         action = ":vnew<CR>";
         options.desc = "Open new vertical split";
-      }
-
-      ## Indent or de-indent
-      {
-        mode = "n";
-        key = "<Tab>";
-        action.__raw = "function() return require('utils').always_working_indent_line() end";
-        options.desc = "Add indentation";
-      }
-      {
-        mode = "n";
-        key = "<S-Tab>";
-        action = "<<";
-        options.desc = "De-indentation";
-      }
-      {
-        mode = "v";
-        key = "<Tab>";
-        action = ">gv";
-        options.desc = "Add indentation";
-      }
-      {
-        mode = "v";
-        key = "<S-Tab>";
-        action = "<gv";
-        options.desc = "De-indentation";
       }
 
       ## lspconfig
