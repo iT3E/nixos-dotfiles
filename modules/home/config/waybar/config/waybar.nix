@@ -7,11 +7,11 @@ in
     enable = true;
   };
 
-  programs.waybar.package = stable.waybar.overrideAttrs (oa: {
-    mesonFlags = (oa.mesonFlags or [ ]) ++ [
-      "-Dexperimental=true"
-      "-Dwireplumber=disabled"
-      "-Dpipewire=disabled"
-    ];
-  });
+  # programs.waybar.package = stable.waybar.overrideAttrs (oa: {
+  #   mesonFlags = (oa.mesonFlags or [ ]) ++ [
+  #     "-Dexperimental=true"
+  #     "-Dwireplumber=disabled"
+  #     "-Dpipewire=disabled"
+  #   ];
+  # });
 }
