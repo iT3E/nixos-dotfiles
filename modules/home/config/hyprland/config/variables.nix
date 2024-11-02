@@ -10,6 +10,8 @@
     GDK_BACKEND = "wayland";
     ANKI_WAYLAND = "1";
     DIRENV_LOG_FORMAT = "";
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     QT_QPA_PLATFORM = "xcb";
