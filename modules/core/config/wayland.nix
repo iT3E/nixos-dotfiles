@@ -5,15 +5,15 @@ in
 {
   programs.hyprland = {
     enable = true;
-    package = stable.hyprland;
+    package = pkgs.hyprland;
   };
   xdg.portal = {
     enable = true;
     wlr.enable = true;
     xdgOpenUsePortal = true;
     extraPortals = [
-      stable.xdg-desktop-portal-hyprland
-      stable.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
     ];
   };
 
