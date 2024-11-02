@@ -29,25 +29,30 @@ in
     vulkan-extension-layer
   ];
 
+  services.xserver.videoDrivers = ["nvidia"];
+
   hardware = {
+    opengl = {
+      enable = true;
+    }
     nvidia = {
       package = nvidiaPackage;
       modesetting.enable = true;
 
       powerManagement = {
-        enable = true;
+        enable = false;
         finegrained = false;
       };
 
       open = true;
-      nvidiaSettings = false;
+      nvidiaSettings = true;
       nvidiaPersistenced = true;
-      forceFullCompositionPipeline = true;
+      # forceFullCompositionPipeline = true;
     };
 
-    graphics = {
-      extraPackages = with pkgs; [ nvidia-vaapi-driver ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [ nvidia-vaapi-driver ];
-    };
+    # graphics = {
+    #   extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+    #   extraPackages32 = with pkgs.pkgsi686Linux; [ nvidia-vaapi-driver ];
+    # };
   };
 }
