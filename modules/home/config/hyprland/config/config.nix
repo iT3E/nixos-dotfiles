@@ -17,6 +17,23 @@
         "swaync &"
         "wl-paste --watch cliphist store &"
         "hyprlock"
+
+        # Static workspaces
+        "$terminal = kitty"
+        "$editor = nvim"
+        "$browser = firefox-devedition"
+        "$browser2 = google-chrome-stable"
+        "[workspace 1 silent] $browser"
+        "[workspace 2 silent] obsidian"
+        "[workspace 2 silent] $terminal"
+        "[workspace 3 silent] $terminal btop"
+        "[workspace 3 silent] $terminal ping 8.8.8.8"
+        "[workspace 3 silent] $terminal ping 172.16.1.1"
+        "[workspace 3 silent] $terminal ping 10.10.30.1"
+        "[workspace 3 silent] $terminal nvtop"
+        "[workspace 4 silent] $browser"
+        "[workspace 5 silent] $browser2"
+        "[workspace 8 silent] $terminal"
       ];
 
       input = {
@@ -437,26 +454,22 @@
     };
 
     extraConfig = lib.mkMerge [
-      (lib.mkIf (host == "laptop") {
-        text = ''
-          # monitor=,preferred,auto,auto
-          monitor = eDP-1, 1920x1200, auto, 1.25
+      (lib.mkIf (host == "laptop") ''
+        # monitor=,preferred,auto,auto
+        monitor = eDP-1, 1920x1200, auto, 1.25
 
-          xwayland {
-            force_zero_scaling = true
-          }
-        '';
-      })
-      (lib.mkIf (host == "desktop") {
-        text = ''
-          # monitor=,preferred,auto,auto
-          monitor = DP-1, preferred, auto, auto
+        xwayland {
+          force_zero_scaling = true
+        }
+      '')
+      (lib.mkIf (host == "desktop") ''
+        # monitor=,preferred,auto,auto
+        monitor = DP-1, preferred, auto, auto
 
-          xwayland {
-            force_zero_scaling = true
-          }
-        '';
-      })
+        xwayland {
+          force_zero_scaling = true
+        }
+      '')
     ];
   };
 }
