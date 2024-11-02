@@ -13,6 +13,6 @@
     ./config/wayland.nix
     ./config/virtualization.nix
     ./config/home-manager.nix
-    (lib.mkIf (host == "desktop") ./config/nvidia.nix)
+    (lib.optional (host == "desktop") ./config/nvidia.nix)
   ];
 }
