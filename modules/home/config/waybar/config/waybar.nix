@@ -11,6 +11,7 @@ in
     mesonFlags = (oa.mesonFlags or [ ]) ++ [
       "-Dexperimental=true"
       "-Dwireplumber=disabled"
+      "-Dpipewire=disabled"
     ];
   });
 }
