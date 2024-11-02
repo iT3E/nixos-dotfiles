@@ -7,6 +7,7 @@ in
     enable = true;
     package = pkgs.hyprland;
   };
+
   xdg.portal = {
     enable = true;
     wlr.enable = true;
