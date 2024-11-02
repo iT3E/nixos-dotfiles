@@ -464,7 +464,7 @@
       '')
       (lib.mkIf (host == "desktop") ''
         # monitor=,preferred,auto,auto
-        monitor = DP-1, preferred, auto, auto
+        monitor = DP-1,3840x2160@240,auto,1
 
         xwayland {
           force_zero_scaling = true
