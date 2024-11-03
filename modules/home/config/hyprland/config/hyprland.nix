@@ -16,7 +16,7 @@
   systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.nixpkgs-stable.legacyPackages.${pkgs.system}.hyprland;
+    package = inputs.nixpkgs.legacyPackages.${pkgs.system}.hyprland;
     xwayland = {
       enable = true;
     };
