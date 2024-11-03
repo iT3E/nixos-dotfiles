@@ -11,9 +11,9 @@
       extraPackages = with pkgs; [
       ];
     };
-    opengl = {
-        enable = true;
-      };
+    # opengl = {
+    #     enable = true;
+    #   };
   };
   hardware.enableRedistributableFirmware = true;
 }
