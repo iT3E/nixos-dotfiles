@@ -6,11 +6,11 @@
       powerOnBoot = true;
     };
 
-    graphics = {
-      enable = true;
-      extraPackages = with pkgs; [
-      ];
-    };
+    # graphics = {
+    #   enable = true;
+    #   extraPackages = with pkgs; [
+    #   ];
+    # };
     # opengl = {
     #     enable = true;
     #   };
