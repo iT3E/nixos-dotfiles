@@ -13,6 +13,7 @@
     settings = {
       confirm_os_window_close = 0;
       background_opacity = "0.55";
+      background = "#1a1a2e"; # Slightly darker than Catppuccin-Mocha's default
       window_padding_width = 10;
       scrollback_lines = 10000;
       enable_audio_bell = false;
