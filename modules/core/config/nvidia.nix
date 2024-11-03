@@ -31,10 +31,6 @@ in
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  hardware = {
-    opengl = {
-      enable = true;
-    };
     nvidia = {
       package = nvidiaPackage;
       modesetting.enable = true;
