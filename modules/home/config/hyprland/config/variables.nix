@@ -6,6 +6,11 @@ let
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 
+  laptopVariables = {
+    WLR_BACKEND = "vulkan";
+    WLR_RENDERER = "vulkan";  
+  };
+
   # Common variables for all hosts
   commonVariables = {
     NIXOS_OZONE_WL = "1";
@@ -28,13 +33,11 @@ let
     __GL_VRR_ALLOWED = "0";
     WLR_DRM_NO_ATOMIC = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
-    # WLR_BACKEND = "vulkan";
-    # WLR_RENDERER = "vulkan";  };
   };
 in
 {
   home.sessionVariables = 
     if host == "desktop"
-    then commonVariables // desktopVariables  # Merge both sets for desktop
-    else commonVariables;                     # Only common variables for other hosts
+    then commonVariables // desktopVariables 
+    else commonVariables // laptopVariables; 
 }
