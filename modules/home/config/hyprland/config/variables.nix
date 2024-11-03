@@ -8,8 +8,8 @@ let
   };
 
   laptopVariables = {
-    WLR_BACKEND = "vulkan";
-    WLR_RENDERER = "vulkan";  
+    # WLR_BACKEND = "vulkan";
+    # WLR_RENDERER = "vulkan";  
     SDL_VIDEODRIVER = "wayland";
   };
 
