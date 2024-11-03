@@ -13,5 +13,6 @@
     ./config/wayland.nix
     ./config/virtualization.nix
     ./config/home-manager.nix
-  ] ++ lib.optional (host == "desktop") ./config/nvidia.nix;
+  ]
+  # ] ++ lib.optional (host == "desktop") ./config/nvidia.nix;
 }
