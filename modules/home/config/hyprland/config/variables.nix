@@ -9,6 +9,7 @@ let
   laptopVariables = {
     WLR_BACKEND = "vulkan";
     WLR_RENDERER = "vulkan";  
+    SDL_VIDEODRIVER = "wayland";
   };
 
   # Common variables for all hosts
