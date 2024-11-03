@@ -6,12 +6,12 @@
       powerOnBoot = true;
     };
 
-    # graphics = {
-    #   enable = true;
-    #   extraPackages = with pkgs; [
-    #
-    #   ];
-    # };
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [
+
+      ];
+    };
   };
   hardware.enableRedistributableFirmware = true;
   hardware.opengl.enable = true;
