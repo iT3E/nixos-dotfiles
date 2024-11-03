@@ -29,12 +29,12 @@ in
     vulkan-extension-layer
   ];
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware = {
     opengl = {
       enable = true;
-    }
+    };
     nvidia = {
       package = nvidiaPackage;
       modesetting.enable = true;
