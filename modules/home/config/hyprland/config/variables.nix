@@ -30,6 +30,7 @@ let
     WLR_NO_HARDWARE_CURSORS = "1";
     # WLR_BACKEND = "vulkan";
     # WLR_RENDERER = "vulkan";  };
+  };
 in
 {
   home.sessionVariables = 
