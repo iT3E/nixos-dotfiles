@@ -1,16 +1,14 @@
 { pkgs, ... }:
-{  
+{
   hardware = {
     bluetooth = {
       enable = true;
       powerOnBoot = true;
     };
 
-    # graphics = {
-    #   enable = true;
-    #   extraPackages = with pkgs; [
-    #   ];
-    # };
+    graphics = {
+      enable = true;
+    };
     # opengl = {
     #     enable = true;
     #   };
