@@ -36,6 +36,10 @@
         "[workspace 8 silent] $terminal"
       ];
 
+      cursor = {
+        no_hardware_cursors = true;
+      };
+
       input = {
         kb_layout = "us";
         kb_options = "grp:alt_caps_toggle";
