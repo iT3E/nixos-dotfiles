@@ -1,4 +1,10 @@
-{ inputs, host, lib, self, ...}:
+{
+  inputs,
+  host,
+  lib,
+  self,
+  ...
+}:
 {
   imports = [
     ./config/bootloader.nix
@@ -13,6 +19,5 @@
     ./config/wayland.nix
     ./config/virtualization.nix
     ./config/home-manager.nix
-  ];
-  # ] ++ lib.optional (host == "desktop") ./config/nvidia.nix;
+  ] ++ lib.optional (host == "desktop") ./config/nvidia.nix;
 }
