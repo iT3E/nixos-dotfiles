@@ -4,37 +4,42 @@
     settings = {
 
       # autostart
-      exec-once = [
-        "systemctl --user import-environment &"
-        "hash dbus-update-activation-environment 2>/dev/null &"
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &"
-        "nm-applet &"
-        "wl-clip-persist --clipboard both"
-        "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
-        "hyprctl setcursor Nordzy-cursors 22 &"
-        "poweralertd &"
-        "waybar &"
-        "swaync &"
-        "wl-paste --watch cliphist store &"
-        "hyprlock"
+      exec-once =
+        [
+          "systemctl --user import-environment &"
+          "hash dbus-update-activation-environment 2>/dev/null &"
+          "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &"
+          "nm-applet &"
+          "wl-clip-persist --clipboard both"
+          "swaybg -m fill -i $(find ~/Pictures/wallpapers/ -maxdepth 1 -type f) &"
+          "hyprctl setcursor Nordzy-cursors 22 &"
+          "poweralertd &"
+          "waybar &"
+          "swaync &"
+          "wl-paste --watch cliphist store &"
+          "hyprlock"
 
-        # Static workspaces
-        "$terminal = kitty"
-        "$editor = nvim"
-        "$browser = firefox-devedition"
-        "$browser2 = google-chrome-stable"
-        "[workspace 1 silent] $browser"
-        "[workspace 2 silent] obsidian"
-        "[workspace 2 silent] $terminal"
-        "[workspace 3 silent] $terminal btop"
-        "[workspace 3 silent] $terminal ping 8.8.8.8"
-        "[workspace 3 silent] $terminal ping 172.16.1.1"
-        "[workspace 3 silent] $terminal ping 10.10.30.1"
-        "[workspace 3 silent] $terminal nvtop"
-        "[workspace 4 silent] $browser"
-        "[workspace 5 silent] $browser2"
-        "[workspace 8 silent] $terminal"
-      ];
+          # Static workspaces
+          "$terminal = kitty"
+          "$editor = nvim"
+          "$browser = firefox-devedition"
+          "$browser2 = google-chrome-stable"
+          "[workspace 1 silent] $browser"
+          "[workspace 2 silent] obsidian"
+          "[workspace 2 silent] $terminal"
+          "[workspace 3 silent] $terminal btop"
+          "[workspace 3 silent] $terminal ping 8.8.8.8"
+          "[workspace 3 silent] $terminal ping 172.16.1.1"
+          "[workspace 3 silent] $terminal ping 10.10.30.1"
+        ]
+        ++ lib.optionals (host == "desktop") [
+          "[workspace 3 silent] $terminal nvtop"
+        ]
+        ++ [
+          "[workspace 4 silent] $browser"
+          "[workspace 5 silent] $browser2"
+          "[workspace 8 silent] $terminal"
+        ];
 
       cursor = {
         no_hardware_cursors = true;
