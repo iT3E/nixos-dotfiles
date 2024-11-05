@@ -13,7 +13,10 @@
   home.packages = (
     with pkgs;
     [
-      (lib.optional (host == "desktop") nvtopPackages.intel)
     ]
+    ++ lib.optionals (host == "desktop") [
+      nvtopPackages.intel
+    ]
+
   );
 }
