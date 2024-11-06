@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, host, ... }:
 {
   programs.kitty = {
     enable = true;
@@ -7,7 +7,10 @@
 
     font = {
       name = "JetBrainsMono Nerd Font";
-      size = 11;
+      size = lib.mkMerge [
+        (lib.mkIf (host == "desktop") 16)
+        (lib.mkIf (host != "desktop") 11)
+      ];
     };
 
     settings = {
