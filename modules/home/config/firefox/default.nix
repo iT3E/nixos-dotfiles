@@ -140,7 +140,18 @@
             "browser.startup.homepage.abouthome_cache.enabled" = true;
             "browser.startup.page" = 3;
             "browser.urlbar.keepPanelOpenDuringImeComposition" = true;
+            "browser.urlbar.suggest.history" = false;
+            "browser.urlbar.suggest.topsites" = false;
+            "browser.urlbar.suggest.trending" = false;
+            "browser.urlbar.suggest.addons" = false;
+            "browser.urlbar.suggest.bookmark" = false;
+            "browser.urlbar.suggest.clipboard" = false;
+            "browser.urlbar.suggest.mdn" = false;
+            "browser.urlbar.suggest.openpage" = false;
+            "browser.urlbar.suggest.pocket" = false;
             "browser.urlbar.suggest.quicksuggest.sponsored" = false;
+            "browser.urlbar.suggest.recentsearches" = false;
+            "browser.urlbar.suggest.remotetab" = false;
           }
           // lib.optionalAttrs (host == "desktop") {
             "browser.zoom.siteSpecific" = false;
