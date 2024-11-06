@@ -168,6 +168,15 @@
           "signon.generation.enabled" = false;
           "signon.management.page.breach-alerts.enabled" = false;
           "xpinstall.signatures.required" = false;
+          }
+          // lib.optionalAttrs (host == "desktop") {
+            "browser.zoom.siteSpecific" = false;
+          }
+          // {
+          // lib.optionalAttrs (host == "desktop") {
+            "layout.css.devPixelsPerPx" = 1.5;
+          }
+          // {
 
           # GPU Acceleration
           "dom.webgpu.enabled" = true;
