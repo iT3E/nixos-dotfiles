@@ -66,7 +66,7 @@
         ];
 
         search = {
-          default = "DuckDuckGo";
+          default = "Google";
           privateDefault = "DuckDuckGo";
           force = true;
 
