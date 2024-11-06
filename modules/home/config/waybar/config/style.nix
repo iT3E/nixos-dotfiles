@@ -1,14 +1,20 @@
-{ ... }:
+{ lib, host, ... }:
 let
   custom = {
     font = "JetBrainsMono Nerd Font";
-    font_size = "12px";
+    font_size = if host == "desktop" then "18px" else "12px";
     font_weight = "bold";
     text_color = "#cdd6f4";
     secondary_accent = "89b4fa";
     tertiary_accent = "f5f5f5";
     background = "11111B";
     opacity = "0.98";
+    workspaces_font_size = if host == "desktop" then "27px" else "18px";
+    workspaces_button_padding_left = if host == "desktop" then "12px" else "6px";
+    workspaces_button_padding_right = if host == "desktop" then "12px" else "6px";
+    custom_launcher_font_size = if host == "desktop" then "30px" else "20px";
+    custom_launcher_padding_left = if host == "desktop" then "20px" else "10px";
+    custom_launcher_padding_right = if host == "desktop" then "25px" else "15px";
   };
 in
 {
@@ -30,14 +36,14 @@ in
     }
 
     #workspaces {
-        font-size: 18px;
+        font-size: ${custom.workspaces_font_size};
         padding-left: 15px;
 
     }
     #workspaces button {
         color: ${custom.text_color};
-        padding-left:  6px;
-        padding-right: 6px;
+        padding-left:  ${custom.workspaces_button_padding_left};
+        padding-right:  ${custom.workspaces_button_padding_right};
     }
     #workspaces button.empty {
         color: #6c7086;
@@ -80,11 +86,11 @@ in
     }
 
     #custom-launcher {
-        font-size: 20px;
+        font-size: ${custom.custom_launcher_font_size};
         color: #b4befe;
         font-weight: ${custom.font_weight};
-        padding-left: 10px;
-        padding-right: 15px;
+        padding-left: ${custom.custom_launcher_padding_left};
+        padding-right: ${custom.custom_launcher_padding_right};
     }
   '';
 }
