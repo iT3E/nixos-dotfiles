@@ -1,9 +1,12 @@
-{ ... }:
+{ lib, host, ... }:
 {
   programs.waybar.settings.mainBar = {
     position = "bottom";
     layer = "top";
-    height = 5;
+    height = lib.mkMerge [
+      (lib.mkIf (host == "desktop") 8)
+      (lib.mkIf (host != "desktop") 5)
+    ];
     margin-top = 0;
     margin-bottom = 0;
     margin-left = 0;
@@ -28,6 +31,9 @@
         format = {
           today = "<span color='#b4befe'><b><u>{}</u></b></span>";
         };
+        on-scroll = 1;
+        weeks-pos = "right";
+        on-click-right = "mode";
       };
       format = " {:%H:%M}";
       tooltip = "true";
@@ -86,7 +92,8 @@
     #   format-disconnected = "󰖪 ";
     # };
     tray = {
-      icon-size = 20;
+      # icon-size = 20;
+      icon-size = 30;
       spacing = 8;
     };
     pulseaudio = {
