@@ -1,15 +1,30 @@
-{ pkgs, inputs, username, host, self, ...}:
+{
+  pkgs,
+  inputs,
+  username,
+  host,
+  self,
+  ...
+}:
+
+let
+  hostConfig = {
+    "desktop" = ../../home/default.desktop.nix;
+    "laptop" = ../../home/default.laptop.nix;
+    "mac" = ../../home/default.server.nix;
+  };
+in
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
+
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs username host; };
+    extraSpecialArgs = {
+      inherit inputs username host;
+    };
     users.${username} = {
-      imports = 
-        if (host == "desktop") then 
-          [ ../../home/default.desktop.nix ] 
-        else [ ../../home/default.nix ];
+      imports = [ (hostConfig.${host} or ../../home/default.nix) ];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
       home.stateVersion = "24.05";
@@ -20,8 +35,12 @@
   users.users.${username} = {
     isNormalUser = true;
     description = "${username}";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
   };
+
   nix.settings.allowed-users = [ "${username}" ];
 }

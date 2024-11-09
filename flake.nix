@@ -119,8 +119,8 @@
             # Add the Hyprland cachix settings
             {
               nix.settings = {
-                substituters = ["https://hyprland.cachix.org"];
-                trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+                substituters = [ "https://hyprland.cachix.org" ];
+                trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
               };
             }
           ];
@@ -129,7 +129,7 @@
             inherit self inputs username;
           };
         };
-        
+
         laptop = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
@@ -138,13 +138,25 @@
             # Add the Hyprland cachix settings
             {
               nix.settings = {
-                substituters = ["https://hyprland.cachix.org"];
-                trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+                substituters = [ "https://hyprland.cachix.org" ];
+                trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
               };
             }
           ];
           specialArgs = {
             host = "laptop";
+            inherit self inputs username;
+          };
+        };
+
+        mac = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./hosts/mac
+            { nixpkgs.overlays = [ inputs.nur.overlay ]; }
+          ];
+          specialArgs = {
+            host = "mac";
             inherit self inputs username;
           };
         };
