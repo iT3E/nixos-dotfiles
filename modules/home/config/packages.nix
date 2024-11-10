@@ -29,14 +29,14 @@
       nemo-with-extensions # file manager
       nitch # systhem fetch util
       nix-prefetch-github
-      prismlauncher # minecraft launcher
+      # prismlauncher # minecraft launcher
       ripgrep # grep replacement
       # tdf                               # cli pdf viewer
-      todo # cli todo list
+      # todo # cli todo list
       yazi # terminal file manager
       zenity
-      winetricks
-      wineWowPackages.wayland
+      # winetricks
+      # wineWowPackages.wayland
 
       # C / C++
       gcc
