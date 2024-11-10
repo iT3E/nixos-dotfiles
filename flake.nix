@@ -136,10 +136,10 @@
           };
         };
 
-        laptop = nixpkgs.lib.nixosSystem {
+        xps = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./hosts/laptop
+            ./hosts/xps
             { nixpkgs.overlays = [ inputs.nur.overlay ]; }
             # Add the Hyprland cachix settings
             {
@@ -150,7 +150,7 @@
             }
           ];
           specialArgs = {
-            host = "laptop";
+            host = "xps";
             inherit self inputs username;
           };
         };

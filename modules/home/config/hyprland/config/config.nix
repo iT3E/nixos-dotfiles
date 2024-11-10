@@ -463,7 +463,7 @@
     };
 
     extraConfig = lib.mkMerge [
-      (lib.mkIf (host == "laptop") ''
+      (lib.mkIf (host == "xps") ''
         # monitor=,preferred,auto,auto
         monitor = eDP-1, 1920x1200, auto, 1.25
 

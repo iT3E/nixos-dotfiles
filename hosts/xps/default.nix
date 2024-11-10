@@ -1,8 +1,14 @@
-{ pkgs, config, self, inputs, ... }: 
+{
+  pkgs,
+  config,
+  self,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./hardware-configuration.nix
-    ./../../modules/core
+    ./../../modules/core/x86_64-linux
     inputs.nixos-hardware.nixosModules.dell-xps-13-9310
   ];
 
@@ -13,12 +19,12 @@
     powertop
     neovim
   ];
-  
-  services = {    
+
+  services = {
     # thermald.enable = true;
     # cpupower-gui.enable = true;
     power-profiles-daemon.enable = true;
- 
+
     upower = {
       enable = true;
       percentageLow = 20;
@@ -45,12 +51,17 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   boot = {
-    kernelModules = [ "acpi_call" "btqca" "hci_uart" ];
-    extraModulePackages = with config.boot.kernelPackages;
+    kernelModules = [
+      "acpi_call"
+      "btqca"
+      "hci_uart"
+    ];
+    extraModulePackages =
+      with config.boot.kernelPackages;
       [
         acpi_call
         cpupower
       ]
-      ++ [pkgs.cpupower-gui];
+      ++ [ pkgs.cpupower-gui ];
   };
 }

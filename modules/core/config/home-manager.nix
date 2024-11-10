@@ -10,8 +10,8 @@
 let
   hostConfig = {
     "desktop" = ../../home/default.desktop.nix;
-    "laptop" = ../../home/default.laptop.nix;
-    "mac" = ../../home/default.server.nix;
+    "laptop" = ../../home/default.xps.nix;
+    "mac" = ../../home/default.mac.nix;
   };
 in
 {
@@ -24,7 +24,7 @@ in
       inherit inputs username host;
     };
     users.${username} = {
-      imports = [ (hostConfig.${host} or ../../home/default.nix) ];
+      imports = [ (hostConfig.${host}) ];
       home.username = "${username}";
       home.homeDirectory = "/home/${username}";
       home.stateVersion = "24.05";

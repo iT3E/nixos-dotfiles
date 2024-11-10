@@ -9,9 +9,9 @@
 
 let
   hostConfig = {
-    "desktop" = ../../home/default.desktop.nix;
-    "laptop" = ../../home/default.nix;
-    "mac" = ../../home/default.server.nix;
+    "desktop" = ../../../home/default.desktop.nix;
+    "xps" = ../../../home/default.xps.nix;
+    "mac" = ../../../home/default.mac.nix;
   };
 in
 {
