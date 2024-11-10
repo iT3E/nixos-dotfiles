@@ -10,6 +10,12 @@
     # https://flake.parts
     flake-parts.url = "github:hercules-ci/flake-parts";
 
+    # macOS Support (master)
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # home-manager - home user modules
     # https://github.com/nix-community/home-manager
     home-manager = {
