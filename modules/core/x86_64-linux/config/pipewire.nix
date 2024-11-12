@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   hardware.pulseaudio.enable = false;
   services.pipewire = {
@@ -10,5 +10,7 @@
   };
   environment.systemPackages = with pkgs; [
     pulseaudioFull
+    bluez
+    bluez-tools
   ];
 }

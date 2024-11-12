@@ -1,10 +1,13 @@
-{ ... }: 
+{ pkgs, ... }:
 {
   services = {
     blueman.enable = true;
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
-    dbus.enable = true;
+    dbus = {
+      enable = true;
+      packages = [ pkgs.bluez ];
+    };
     fstrim.enable = true;
   };
   services.logind.extraConfig = ''

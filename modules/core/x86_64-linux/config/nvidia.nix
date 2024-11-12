@@ -8,8 +8,8 @@
 
 let
   # use the latest possible nvidia package
-  nvStable = config.boot.kernelPackages.nvidiaPackages.stable.version;
-  nvBeta = config.boot.kernelPackages.nvidiaPackages.beta.version;
+  # nvStable = config.boot.kernelPackages.nvidiaPackages.stable.version;
+  # nvBeta = config.boot.kernelPackages.nvidiaPackages.beta.version;
 
   # nvidiaPackage = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
   nvidiaPackage = config.boot.kernelPackages.nvidiaPackages.stable;

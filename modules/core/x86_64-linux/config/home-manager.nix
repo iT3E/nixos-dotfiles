@@ -38,6 +38,9 @@ in
     extraGroups = [
       "networkmanager"
       "wheel"
+      "bluetooth"
+      "audio"
+      "input"
     ];
     shell = pkgs.zsh;
   };
