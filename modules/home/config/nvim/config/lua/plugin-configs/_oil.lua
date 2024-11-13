@@ -4,6 +4,7 @@ oil.setup({
 	columns = {
 		"icon",
 		"size",
+    "parent",
 	},
 	win_options = {
 		wrap = false,
