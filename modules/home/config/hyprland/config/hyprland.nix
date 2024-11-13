@@ -3,7 +3,8 @@
   home.packages = with pkgs; [
     # swww
     swaybg
-    inputs.hypr-contrib.packages.${pkgs.system}.grimblast
+    inputs.hypr-contrib.packages.${pkgs.system}.grimblast # screenshots
+    swappy # screenshot edit
     hyprpicker
     grim
     slurp

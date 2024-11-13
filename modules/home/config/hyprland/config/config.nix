@@ -202,7 +202,7 @@
         "$mainMod, XF86MonBrightnessDown, exec, brightnessctl set 100%-"
 
         # Screenshot/Screencapture
-        "$mainMod, Print, exec, grimblast --notify --cursor --freeze save area ~/Pictures/$(date +'%Y-%m-%d-At-%Ih%Mm%Ss').png"
+        "$mainMod, P, exec, grimblast --notify --cursor --freeze save area - | swappy -f -"
         ",Print, exec, grimblast --notify --cursor --freeze copy area"
 
         # Move focus with mainMod + arrow keys
