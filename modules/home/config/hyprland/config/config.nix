@@ -20,25 +20,23 @@
           "hyprlock"
 
           # Static workspaces
-          "$terminal = kitty"
-          "$editor = nvim"
-          "$browser = firefox-devedition"
-          "$browser2 = google-chrome-stable"
-          "[workspace 1 silent] $browser"
-          "[workspace 2 silent] obsidian"
-          "[workspace 2 silent] $terminal"
-          "[workspace 3 silent] $terminal btop"
-          "[workspace 3 silent] $terminal ping 8.8.8.8"
-          "[workspace 3 silent] $terminal ping 172.16.1.1"
-          "[workspace 3 silent] $terminal ping 10.10.30.1"
-        ]
-        ++ lib.optionals (host == "desktop") [
-          "[workspace 3 silent] $terminal nvtop"
         ]
         ++ [
-          "[workspace 4 silent] $browser"
-          "[workspace 5 silent] $browser2"
-          "[workspace 8 silent] $terminal"
+          "hyprctl dispatch exec '[workspace 1 silent] firefox-devedition'"
+          "hyprctl dispatch exec '[workspace 2 silent] obsidian'"
+          "hyprctl dispatch exec '[workspace 2 silent] kitty'"
+          "hyprctl dispatch exec '[workspace 3 silent] kitty btop'"
+          "hyprctl dispatch exec '[workspace 3 silent] kitty ping 8.8.8.8'"
+          "hyprctl dispatch exec '[workspace 3 silent] kitty ping 172.16.1.1'"
+          "hyprctl dispatch exec '[workspace 3 silent] kitty ping 10.10.30.1'"
+        ]
+        ++ lib.optionals (host == "desktop") [
+          "hyprctl dispatch exec '[workspace 3 silent] kitty nvtop'"
+        ]
+        ++ [
+          "hyprctl dispatch exec '[workspace 4 silent] firefox-devedition'"
+          "hyprctl dispatch exec '[workspace 5 silent] google-chrome-stable'"
+          "hyprctl dispatch exec '[workspace 8 silent] kitty tmux'"
         ];
 
       cursor = {
