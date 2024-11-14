@@ -14,6 +14,8 @@
         runtimeDependencies = oldAttrs.runtimeDependencies ++ [ libogg ];
         autoPatchelfIgnoreMissingDeps = [ "libogg.so.0" ];
       }))
+      age # encryption
+      sops # secret encryption
       entr # perform action when file change
       fd # find replacement
       file # Show file information
