@@ -1,4 +1,4 @@
-{ inputs, self, ...}:
+{ inputs, self, ... }:
 {
   imports = [
     # inputs.home-manager.nixosModules.home-manager
@@ -18,6 +18,7 @@
     ./config/kitty.nix
     ./config/lazygit.nix
     ./config/swaync
+    ./config/sops.nix
     ./config/micro.nix
     # ./config/nvim
     ./config/packages.nix

@@ -18,6 +18,9 @@ in
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   home-manager = {
+    sharedModules = [
+      inputs.sops-nix.homeManagerModules.sops
+    ];
     useUserPackages = true;
     useGlobalPkgs = true;
     extraSpecialArgs = {
