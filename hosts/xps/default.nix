@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ./../../modules/core/x86_64-linux
     inputs.nixos-hardware.nixosModules.dell-xps-13-9310
+    inputs.sops-nix.nixosModules.sops
   ];
 
   environment.systemPackages = with pkgs; [
