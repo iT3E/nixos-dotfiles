@@ -1,0 +1,10 @@
+---
+keys:
+  - &host_nixos-xps >-
+    age1c9m5sazw5ndjwdm7glq8xyqyke9les0gnxy6s6xc9ysy9ggpppdsaye5hc
+
+creation_rules:
+  - path_regex: secrets\.yaml$
+    key_groups:
+      - age:
+          - *host_nixos-xps
