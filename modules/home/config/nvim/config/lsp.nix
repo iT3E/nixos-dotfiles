@@ -38,6 +38,13 @@
 
           -- Use neodev for lua
           require('neodev').setup()
+
+          -- Format on save for any file that has an LSP formatter
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            callback = function()
+              vim.lsp.buf.format()
+            end,
+          })
         '';
         capabilities = ''
           capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown', 'plaintext' }
@@ -195,6 +202,9 @@
             shfmt = {
               enable = true;
               settings = "{ extra_args = { '-i', '2', '-ci' } }";
+            };
+            terraform_fmt = {
+              enable = true;
             };
           };
           diagnostics = {
