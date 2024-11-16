@@ -65,6 +65,7 @@
       cliphist # clipboard manager
       poweralertd
       qalculate-gtk # calculator
+      terraform
       unzip
       wget
       xdg-utils
