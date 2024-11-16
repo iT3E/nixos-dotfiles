@@ -39,7 +39,6 @@
 
   home.activation = {
     generateWorkGitConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-      mkdir -p ~/.config/git
       cat > ~/.config/git/work.gitconfig << EOF
       [user]
         name = $(cat ${config.sops.secrets.git_work_username.path})
@@ -48,7 +47,6 @@
     '';
 
     generatePersonalGitConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-      mkdir -p ~/.config/git
       cat > ~/.config/git/personal.gitconfig << EOF
       [user]
         name = iT3E
