@@ -19,6 +19,7 @@ in
       "lua/plugin-configs/_firenvim.lua".text = builtins.readFile ./lua/plugin-configs/_firenvim.lua;
       "lua/plugin-configs/_fzf-lua.lua".text = builtins.readFile ./lua/plugin-configs/_fzf-lua.lua;
       "lua/plugin-configs/_gitsigns.lua".text = builtins.readFile ./lua/plugin-configs/_gitsigns.lua;
+      "lua/plugin-configs/_harpoon.lua".text = builtins.readFile ./lua/plugin-configs/_harpoon.lua;
       "lua/plugin-configs/_lualine.lua".text = builtins.readFile ./lua/plugin-configs/_lualine.lua;
       "lua/plugin-configs/_noice.lua".text = builtins.readFile ./lua/plugin-configs/_noice.lua;
       "lua/plugin-configs/_nvim-cmp.lua".text = builtins.readFile ./lua/plugin-configs/_nvim-cmp.lua;
@@ -160,6 +161,10 @@ in
       vim-tmux-navigator
       plenary-nvim
       telescope-fzf-native-nvim
+      {
+        plugin = harpoon2;
+        config = "lua require('plugin-configs._harpoon')";
+      }
       {
         plugin = noice-nvim;
         config = "lua require('plugin-configs._noice')";
