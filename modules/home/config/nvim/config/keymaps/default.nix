@@ -3,6 +3,7 @@
     ./plugin-keymaps/telescope-keymap.nix
     ./plugin-keymaps/lsp-keymap.nix
     ./plugin-keymaps/lazygit-keymap.nix
+    ./plugin-keymaps/harpoon-keymap.nix
   ];
   config = {
     plugins.which-key = {
@@ -14,10 +15,15 @@
             group = "buffers";
             desc = "buffers";
           }
-
           {
             __unkeyed-1 = "<leader>f";
             group = "file/find";
+            desc = "file/find";
+          }
+          {
+            __unkeyed-1 = "<leader>h";
+            group = "harpoon";
+            desc = "harpoon";
           }
           {
             __unkeyed-1 = "<leader>u";
