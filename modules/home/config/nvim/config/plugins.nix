@@ -161,10 +161,12 @@ in
       vim-tmux-navigator
       plenary-nvim
       telescope-fzf-native-nvim
-      {
-        plugin = harpoon2;
-        config = "lua require('plugin-configs._harpoon')";
-      }
+      # harpoon
+      # harpoon2
+      # {
+      #   plugin = harpoon2;
+      #   config = "lua require('plugin-configs._harpoon')";
+      # }
       {
         plugin = noice-nvim;
         config = "lua require('plugin-configs._noice')";

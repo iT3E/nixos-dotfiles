@@ -1,10 +1,16 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
     ./config/plugins.nix
     ./config/general.nix
     ./config/appearance.nix
     ./config/autocmds.nix
+    ./config/harpoon.nix
     ./config/lsp.nix
     ./config/keymaps
   ];

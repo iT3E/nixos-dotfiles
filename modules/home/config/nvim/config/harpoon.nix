@@ -8,17 +8,17 @@
 
       keymaps = {
         addFile = "<leader>ha";
-        toggleQuickMenu = "<leader>he";
+        toggleQuickMenu = "<leader>hm";
         navFile = {
-          "1" = "<leader>hj";
-          "2" = "<leader>hk";
-          "3" = "<leader>hl";
-          "4" = "<leader>hm";
+          "1" = "<c-h><c-h>";
+          "2" = "<c-h><c-j>";
+          "3" = "<c-h><c-k>";
+          "4" = "<c-h><c-l>";
         };
       };
     };
 
-    which-key.settings.spec = {
+    which-key.settings.spec = [
       {
         __unkeyed = "<leader>h";
         group = "Harpoon";
@@ -29,25 +29,25 @@
         desc = "Add";
       }
       {
-        __unkeyed = "<leader>he";
+        __unkeyed = "<leader>hm";
         desc = "QuickMenu";
       }
       {
-        __unkeyed = "<leader>hj";
+        __unkeyed = "<c-h><c-h>";
         desc = "1";
       }
       {
-        __unkeyed = "<leader>hk";
+        __unkeyed = "<c-h><c-j>";
         desc = "2";
       }
       {
-        __unkeyed = "<leader>hl";
+        __unkeyed = "<c-h><c-k>";
         desc = "3";
       }
       {
-        __unkeyed = "<leader>hm";
+        __unkeyed = "<c-h><c-l>";
         desc = "4";
       }
-    };
+    ];
   };
 }
