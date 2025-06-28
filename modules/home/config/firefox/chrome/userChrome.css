@@ -378,18 +378,46 @@
   height: 0px;
 }
 
-/* AUTO HIDE SIDE BAR */
+/* AUTO HIDE SIDE BAR - Updated for Firefox 140+ */
 
 #sidebar-box {
   --uc-sidebar-width: 44px;
   --uc-sidebar-hover-width: 260px;
-  --uc-autohide-sidebar-delay: 1ms;
-  /* Waiting time before hiding sidebar */
   position: relative;
   min-width: var(--uc-sidebar-width) !important;
   width: var(--uc-sidebar-width) !important;
   max-width: var(--uc-sidebar-width) !important;
-  z-index: 100;
+  transition: all 0.2s ease !important;
+  overflow: visible !important;
+}
+
+#sidebar-splitter {
+  display: none !important;
+}
+
+#sidebar {
+  min-width: var(--uc-sidebar-width) !important;
+  width: 100% !important;
+  max-width: none !important;
+  overflow: hidden !important;
+}
+
+/* Hover trigger zone */
+#sidebar-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  z-index: 1001;
+}
+
+#sidebar-box:hover {
+  min-width: var(--uc-sidebar-hover-width) !important;
+  width: var(--uc-sidebar-hover-width) !important;
+  max-width: var(--uc-sidebar-hover-width) !important;
+  transition: all 0.15s ease !important;
 }
 
 #sidebar-box[positionend] {
@@ -398,34 +426,6 @@
 
 #sidebar-box[positionend]>* {
   direction: ltr;
-}
-
-#sidebar-box[positionend]:-moz-locale-dir(rtl) {
-  direction: ltr;
-}
-
-#sidebar-box[positionend]:-moz-locale-dir(rtl)>* {
-  direction: rtl;
-}
-
-#sidebar-splitter {
-  display: none;
-}
-
-#sidebar-header {
-  overflow: hidden;
-  color: var(--chrome-color, inherit) !important;
-}
-
-#sidebar {
-  transition: min-width 115ms linear var(--uc-autohide-sidebar-delay) !important;
-  min-width: var(--uc-sidebar-width) !important;
-  will-change: min-width;
-}
-
-#sidebar-box:hover>#sidebar {
-  min-width: var(--uc-sidebar-hover-width) !important;
-  transition-delay: 0ms !important;
 }
 
 .sidebar-panel {
